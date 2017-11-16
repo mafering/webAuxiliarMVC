@@ -49,6 +49,17 @@ namespace model.BEL
             return objAuxServDAL.findAuxServDate(objFechaInio, objFechaFin);
         }
 
+        public List<AuxiliarServicioDet> findAuxServNroDet(AuxiliarServicioDet objAuxServicioDet)
+        {
+            
+            return objAuxServDetDAL.findAuxServNroDet(objAuxServicioDet);
+        }
+
+        public List<AuxiliarServicioDet> findAllDet()
+        {
+            return objAuxServDetDAL.findAllServDet();
+        }
+
 
     }
 }

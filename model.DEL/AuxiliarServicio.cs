@@ -342,7 +342,6 @@ namespace model.DEL
             }
         }
 
-
         //Contructores
         public AuxiliarServicioDet()
         {
@@ -352,7 +351,7 @@ namespace model.DEL
         public AuxiliarServicioDet(string numeroAux)
         {
             this.NumeroAux = numeroAux;
-            this.NumeroPla = numeroPla;
+            //this.NumeroPla = numeroPla;
         }
         public AuxiliarServicioDet(string numeroAux, string numeroPla, string docControl, string docReferencia, 
                                     string concepto, string fechaPago, decimal retencionPla, decimal valorEntregado, 
