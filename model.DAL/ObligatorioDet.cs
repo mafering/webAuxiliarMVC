@@ -12,6 +12,5 @@ namespace model.DAL
         List<anyclass> findAuxObraNroDet(anyclass obj);
         List<anyclass> findAllDet();
 
-
     }
 }

@@ -47,10 +47,10 @@ namespace model.DAL
         {
             List<AuxiliarServicio> listaAuxServicio = new List<AuxiliarServicio>();
 
-            string strSQL = @"SELECT NUMERO_A, year([FECHAC_A]) as ANIO, PENAS__A AS CEDRUC, CONTRA_A as CONTRATISTA, DETAL1_A & ' ' & DETAL2_A AS OBJETO, " +
-                            @"PARTID_A AS PARTIDA, MONTOC_A AS MONTO_CTO, FECHAC_A AS FECHAC, PLAZO__A AS PLAZO, FORPAG_A AS FORMA_PAGO " +
-                            @"FROM ADQUI1 " +
-                            @"ORDER BY NUMERO_A";
+            string strSQL = @"SELECT NUMERO_A, year([FECHAC_A]) as ANIO, PENAS__A AS CEDRUC, CONTRA_A as CONTRATISTA, DETAL1_A & ' ' & DETAL2_A AS OBJETO, "
+                          + @"PARTID_A AS PARTIDA, MONTOC_A AS MONTO_CTO, FECHAC_A AS FECHAC, PLAZO__A AS PLAZO, FORPAG_A AS FORMA_PAGO "
+                          + @"FROM ADQUI1 "
+                          + @"ORDER BY NUMERO_A";
             try
             {
                 comandoObj = new OdbcCommand(strSQL, conexionObj.getCon());
@@ -148,7 +148,7 @@ namespace model.DAL
                               + @"PARTID_A AS PARTIDA, MONTOC_A AS MONTO_CTO, FECHAC_A AS FECHAC, PLAZO__A AS PLAZO, FORPAG_A AS FORMA_PAGO "
                               + @"FROM ADQUI1 " 
                               + @"WHERE FECHAC_A >= #" + objFechaInicio + "# AND FECHAC_A <= #" + objFechaFin + "# "
-                              + @"ORDER BY NUMERO DESC";
+                              + @"ORDER BY NUMERO_A DESC";
 
                 try
                 {

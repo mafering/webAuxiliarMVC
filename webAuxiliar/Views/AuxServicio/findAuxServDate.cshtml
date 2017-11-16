@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Información Auxiliar Bienes & Servicios";
+}
+<br />
+
+<!DOCTYPE html>
+<html lang="es-ec">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+</head>
+
+<body>
+    <fieldset>
+        <div>
+            <form>
+                <table style="width:30%">
+                    <tr>
+                        <th>Fecha Desde</th>
+                        <th>Fecha Hasta</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBox("txtFechaDesde", string.Empty, new { @class = "datepicker", @type = "date" })</td>
+                        <td>@Html.TextBox("txtFechaHasta", string.Empty, new { @class = "datepicker", @type = "date" })</td>
+                        <td><input class="btn btn-primary" type="submit" value="Buscar" /></td>
+                    </tr>
+                </table>
+            </form>
+            <br />
+            <table id="jqGridAux"></table>
+            <div id="jqGridAuxPag"></div>
+            <br />
+            @*<button id="exportar">Exportar a Excel</button>*@
+            <input type="button" value="Fila Seleccionada" onclick="getSelectRows()" />
+        </div>
+    </fieldset>
+</body>
+
+</html>
+
+
+@section scripts
+{
+    @*<link rel="stylesheet" href="~/Content/themes/redmond/jquery-ui.min.css">*@
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/free-jqGrid-4.15.2/ui.jqgrid.min.css">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/free-jqGrid-4.15.2/i18n/grid.locale-es.js"></script>
+    <script src="~/Scripts/free-jqGrid-4.15.2/jquery.jqgrid.min.js"></script>
+    <script src="~/Scripts/scriptAuxServicio.js"></script>
+}

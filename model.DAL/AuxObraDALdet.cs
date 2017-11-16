@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.Odbc;
 using model.DEL;
 
-
 namespace model.DAL
 {
     public class AuxObraDALdet : ObligatorioDet<AuxiliarObraDet>
@@ -15,6 +14,7 @@ namespace model.DAL
         private OdbcCommand comandoObj;
         private OdbcDataReader objDR;
 
+        //Constructor
         public AuxObraDALdet()
         {
             conexionObj = Conexion.estadoActual();

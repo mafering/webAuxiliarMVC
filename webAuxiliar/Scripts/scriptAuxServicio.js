@@ -1,4 +1,6 @@
 ﻿$(function () {
+    //var self = this;
+    //var fd = $('#txtFechaDesde').val();
     var $grid = $('#jqGridAux');
     getColumnIndexByName = function ($grid, columnName) {
         var cm = $grid.jqGrid('getGridParam', 'colModel'), i, l = cm.length;
@@ -11,7 +13,7 @@
     },
     $grid.jqGrid(
     {
-        url: '/AuxObra/getAuxObra/',
+        url: '/AuxServicio/getAuxServicio/',
         datatype: 'json',
         mtype: 'Get',
         postData:
@@ -19,7 +21,7 @@
             beginDate: function () { return $('#txtFechaDesde').val() },
             endDate: function () { return $('#txtFechaHasta').val() }
         },
-        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Cto', 'Partida', 'Monto Cto'],
+        colNames: ['Acciones', 'Auxiliar', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Servicio', 'Partida', 'Monto', 'Fecha' ],
         colModel:
         [
             {
@@ -34,34 +36,35 @@
                     //delOptions: myDelOptions
                 }
             },
-            { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '35%', align: "center", sortable: true, firstsortorder: 'desc' },
+            { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '30%', align: "center", sortable: true, firstsortorder: 'desc' },
             { key: false, name: 'AnioCto', index: 'by_anioCto', editable: false, width: '30%', align: "center", sortable: true },
-            { key: false, name: 'CedRuc', index: 'by_cedRuc', editable: false, width: '30%', sortable: true },
-            { key: false, name: 'Contratista', index: 'by_contratista', editable: false, width: 50, sortable: true, resizable: true },
-            { key: false, name: 'ObjetoCto', index: 'by_objetoCto', editable: false, width: 150, height: 'auto', sortable: false },
-            { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 40 },
+            { key: false, name: 'CedRuc', index: 'by_cedRuc', editable: false, width: '43%', sortable: true },
+            { key: false, name: 'Contratista', index: 'by_contratista', editable: false, width: 55, sortable: true, resizable: true },
+            { key: false, name: 'ObjetoCto', index: 'by_objetoCto', editable: false, width: 155, height: 'auto', sortable: false },
+            { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 25, align: 'center' },
             {
-                key: false, name: 'MontoCto', index: 'by_montoCto', width: 50, align: 'right', formatter: 'currency',
-                formatoptios:
-                {
-                    thousandsSeparator: ',',
-                    decimalSeparator: '.',
-                    decimalPlaces: 2,
-                    prefix: '$ ',
-                    //suffix: '',
-                    defaultValue: '$ 0.00'
-                }
-            }
+              key: false, name: 'MontoCto', index: 'by_montoCto', width: 40, align: 'right', template: 'number',
+              formatoptios:
+              {
+                  thousandsSeparator: ',',
+                  decimalSeparator: '.',
+                  decimalPlaces: 2,
+                  prefix: '$ ',
+                  //suffix: '',
+                  defaultValue: '$ 0.00'
+              }
+            },
+            { key: false, name: 'FechaCto', index: 'by_fechaServ', editable: false, width: 30, align: 'center' }
         ],
-        loadonce: false,
-        //styleUI: 'Bootstrap',
+        iconSet: "fontAwesome",
+        //loadonce: false,
         sortname: 'by_numeroAux',
         sortorder: 'desc',
         rowNum: 20,
         rowList: [20, 40, 60, 80, 100],
         height: '100%',
         viewrecords: true,
-        caption: 'Registros Auxiliar Obras',
+        caption: 'Registros Auxiliar Bienes y Servicios',
         emptyrecords: 'No hay registros de auxiliares disponibles para mostrar',
         jsonReader: {
             root: "rows",
@@ -76,29 +79,7 @@
         multiselect: true,
         pager: '#jqGridAuxPag',
 
-        loadComplete: function () {
-            var iCol = getColumnIndexByName($grid, 'act');
-            $(this).find(">tbody>tr.jqgrow>td:nth-child(" + (iCol + 1) + ")")
-                .each(function () {
-                    $("<div>", {
-                        title: "Imprimir",
-                        mouseover: function () {
-                            $(this).addClass('ui-state-hover');
-                        },
-                        mouseout: function () {
-                            $(this).removeClass('ui-state-hover');
-                        },
-                        click: function (e) {
-                            alert("'Custom' button is clicked in the rowis=" +
-                                $(e.target).closest("tr.jqgrow").attr("id") + " !");
-                        }
-                    }
-                  ).css({ "margin-right": "5px", float: "left", cursor: "pointer" })
-                   .addClass("ui-pg-div ui-inline-custom")
-                   .append('<span class="ui-icon ui-icon-print"></span>')
-                   .prependTo($(this).children("div"));
-                })
-        }
+
 
     }).navGrid('#jqGridAuxPag', { edit: false, add: false, del: false, search: true, searchtext: "Buscar Auxiliar", refresh: true, view: false },
         {}, //default setting for edit

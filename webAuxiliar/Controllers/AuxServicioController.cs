@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using model.BEL;
 using model.DEL;
+using model.BEL;
 
 namespace webAuxiliar.Controllers
 {

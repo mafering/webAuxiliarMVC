@@ -169,6 +169,7 @@ namespace model.DEL
         public AuxiliarServicio(string numeroAux, string anioCto, string cedRuc, string contratista, string objetoCto,
                                 string partida, decimal montoCto, string fechaCto, string plazo, string formaPago)
         {
+            this.NumeroAux = numeroAux;
             this.AnioCto = anioCto;
             this.CedRuc = cedRuc;
             this.Contratista = contratista;

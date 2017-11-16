@@ -8,7 +8,7 @@ namespace model.DAL
 {
     interface ObligatorioServDet<anyclass>
     {
-        //Auxiliar de Servicios (detalle)
+        //Auxiliar de Servicio (detalle)
         List<anyclass> findAuxServNroDet(anyclass obj);
         List<anyclass> findAllServDet();
     }

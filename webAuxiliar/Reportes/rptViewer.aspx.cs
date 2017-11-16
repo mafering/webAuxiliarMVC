@@ -16,44 +16,59 @@ namespace webAuxiliar.Reportes
     {
         private AuxObraBEL objAuxObraBEL = new AuxObraBEL();
         private AuxObraBEL objAuxObraBELdet = new AuxObraBEL();
-        
+        private AuxServicioBEL objAuxServicioBEL = new AuxServicioBEL();
+        private AuxServicioBEL objAuxServiDetBEL = new AuxServicioBEL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 string searchText = string.Empty;
-                if (Request.QueryString["searchText"] != null)
+                if (Request.QueryString["rptAuxObra"] != null)
                 {
-                    searchText = Request.QueryString["searchText"].ToString();
+                    searchText = Request.QueryString["rptAuxObra"].ToString();
+
+                    AuxiliarObra objAuxObraNro = new AuxiliarObra();
+                    objAuxObraNro.NumeroAux = searchText;
+                    List<AuxiliarObra> listaAuxObra;
+                    listaAuxObra = objAuxObraBEL.findAuxObraNro(objAuxObraNro);
+
+                    //listaAuxObra = _context.Customers.Where(t => t.FirstName.Contains(searchText) || t.LastName.Contains(searchText)).OrderBy(a => a.CustomerID).ToList();
+                    //listaAuxObra = listaAuxObra.Where(t => t.NumeroAux.Contains(searchText)).ToList();
+
+                    rvDataViewer.LocalReport.ReportPath = Server.MapPath("~/Reportes/RDLC/rptAuxObra.rdlc");
+                    rvDataViewer.LocalReport.DataSources.Clear();
+                    ReportDataSource rdc1 = new ReportDataSource("dsAuxObraCabecera", listaAuxObra);
+                    rvDataViewer.LocalReport.DataSources.Add(rdc1);
+
+                    //AuxiliarObraDet objAuxObraNroDet = new AuxiliarObraDet();
+                    //objAuxObraNroDet.NumeroAux = searchText;
+                    //List<AuxiliarObraDet> listaAuxObraDet;
+                    //listaAuxObraDet = objAuxObraBELdet.findAuxObraNroDet(objAuxObraNroDet);
+                    //ReportDataSource rdc2 = new ReportDataSource("dsAuxObraDetalle", listaAuxObraDet);
+                    //rvDataViewer.LocalReport.DataSources.Add(rdc2);
+
+                    rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxObraDetalle);
                 }
+                else if (Request.QueryString["rptAuxServicio"] != null)
+                {
+                    searchText = Request.QueryString["rptAuxServicio"].ToString();
+                    AuxiliarServicio objAuxServNro = new AuxiliarServicio();
+                    objAuxServNro.NumeroAux = searchText;
+                    List<AuxiliarServicio> listaAuxObra;
+                    listaAuxObra = objAuxServicioBEL.findAuxServNro(objAuxServNro);
 
-                AuxiliarObra objAuxObraNro = new AuxiliarObra();
-                objAuxObraNro.NumeroAux = searchText;
-                List<AuxiliarObra> listaAuxObra;
-                listaAuxObra = objAuxObraBEL.findAuxObraNro(objAuxObraNro);
+                    rvDataViewer.LocalReport.ReportPath = Server.MapPath("~/Reportes/RDLC/rptAuxServicio.rdlc");
+                    rvDataViewer.LocalReport.DataSources.Clear();
+                    ReportDataSource rdc1 = new ReportDataSource("dsAuxServicio", listaAuxObra);
+                    rvDataViewer.LocalReport.DataSources.Add(rdc1);
 
-                //listaAuxObra = _context.Customers.Where(t => t.FirstName.Contains(searchText) || t.LastName.Contains(searchText)).OrderBy(a => a.CustomerID).ToList();
-                //listaAuxObra = listaAuxObra.Where(t => t.NumeroAux.Contains(searchText)).ToList();
-
-                rvDataViewer.LocalReport.ReportPath = Server.MapPath("~/Reportes/RDLC/rptAuxObra.rdlc");
-                rvDataViewer.LocalReport.DataSources.Clear();
-                ReportDataSource rdc1 = new ReportDataSource("dsAuxObraCabecera", listaAuxObra);
-                rvDataViewer.LocalReport.DataSources.Add(rdc1);
-
-                //AuxiliarObraDet objAuxObraNroDet = new AuxiliarObraDet();
-                //objAuxObraNroDet.NumeroAux = searchText;
-                //List<AuxiliarObraDet> listaAuxObraDet;
-                //listaAuxObraDet = objAuxObraBELdet.findAuxObraNroDet(objAuxObraNroDet);
-                //ReportDataSource rdc2 = new ReportDataSource("dsAuxObraDetalle", listaAuxObraDet);
-                //rvDataViewer.LocalReport.DataSources.Add(rdc2);
-
-                rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxObraDetalle);
+                    rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxServicioDetalle);
+                }
 
                 rvDataViewer.LocalReport.Refresh();
                 rvDataViewer.DataBind();
-                
             }
-
         }
 
         public void sRptAuxObraDetalle(object sender, SubreportProcessingEventArgs e)
@@ -65,6 +80,19 @@ namespace webAuxiliar.Reportes
             List<AuxiliarObraDet> listaAuxObraDet;
             listaAuxObraDet = objAuxObraBELdet.findAuxObraNroDet(objAuxObraNroDet);
             e.DataSources.Add(new ReportDataSource("dsAuxObraDetalle", listaAuxObraDet));
+        }
+
+        public void sRptAuxServicioDetalle(object sender, SubreportProcessingEventArgs e)
+        {
+
+            string auxServicioID = e.Parameters["NumeroAux"].Values[0].ToString();
+
+            AuxiliarServicioDet objAuxServiNroDet = new AuxiliarServicioDet();
+            objAuxServiNroDet.NumeroAux = auxServicioID;
+            List<AuxiliarServicioDet> listaAuxServicioDet;  
+            listaAuxServicioDet = objAuxServiDetBEL.findAuxServNro(objAuxServiNroDet); //findAuxServNro(objAuxServiNroDet);
+            e.DataSources.Add(new ReportDataSource("dsAuxServicioPago", listaAuxServicioDet));
+
 
         }
 
