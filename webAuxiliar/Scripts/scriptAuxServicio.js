@@ -37,13 +37,13 @@
                 }
             },
             { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '30%', align: "center", sortable: true, firstsortorder: 'desc' },
-            { key: false, name: 'AnioCto', index: 'by_anioCto', editable: false, width: '30%', align: "center", sortable: true },
+            { key: false, name: 'AnioCto', index: 'by_anioCto', editable: false, width: '20%', align: "center", sortable: true },
             { key: false, name: 'CedRuc', index: 'by_cedRuc', editable: false, width: '43%', sortable: true },
             { key: false, name: 'Contratista', index: 'by_contratista', editable: false, width: 55, sortable: true, resizable: true },
             { key: false, name: 'ObjetoCto', index: 'by_objetoCto', editable: false, width: 155, height: 'auto', sortable: false },
             { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 25, align: 'center' },
             {
-              key: false, name: 'MontoCto', index: 'by_montoCto', width: 40, align: 'right', template: 'number',
+              key: false, name: 'MontoCto', index: 'by_montoCto', width: 30, align: 'right', template: 'number',
               formatoptios:
               {
                   thousandsSeparator: ',',
@@ -78,8 +78,6 @@
         rownumbers: true,
         multiselect: true,
         pager: '#jqGridAuxPag',
-
-
 
     }).navGrid('#jqGridAuxPag', { edit: false, add: false, del: false, search: true, searchtext: "Buscar Auxiliar", refresh: true, view: false },
         {}, //default setting for edit

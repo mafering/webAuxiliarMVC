@@ -19,7 +19,7 @@
             beginDate: function () { return $('#txtFechaDesde').val() },
             endDate: function () { return $('#txtFechaHasta').val() }
         },
-        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Cto', 'Partida', 'Monto Cto'],
+        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha'],
         colModel:
         [
             {
@@ -34,14 +34,14 @@
                     //delOptions: myDelOptions
                 }
             },
-            { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '35%', align: "center", sortable: true, firstsortorder: 'desc' },
-            { key: false, name: 'AnioCto', index: 'by_anioCto', editable: false, width: '30%', align: "center", sortable: true },
+            { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '30%', align: "center", sortable: true, firstsortorder: 'desc' },
+            { key: false, name: 'AnioCto', index: 'by_anioCto', editable: false, width: '20%', align: "center", sortable: true },
             { key: false, name: 'CedRuc', index: 'by_cedRuc', editable: false, width: '30%', sortable: true },
             { key: false, name: 'Contratista', index: 'by_contratista', editable: false, width: 50, sortable: true, resizable: true },
             { key: false, name: 'ObjetoCto', index: 'by_objetoCto', editable: false, width: 150, height: 'auto', sortable: false },
-            { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 40 },
+            { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 30, align: "center" },
             {
-                key: false, name: 'MontoCto', index: 'by_montoCto', width: 50, align: 'right', formatter: 'currency',
+                key: false, name: 'MontoCto', index: 'by_montoCto', width: 30, align: 'right', formatter: 'currency',
                 formatoptios:
                 {
                     thousandsSeparator: ',',
@@ -51,7 +51,8 @@
                     //suffix: '',
                     defaultValue: '$ 0.00'
                 }
-            }
+            },
+            { key: false, name: 'FechaCto', index: 'by_fechaObra', editable: false, width: 30, align: 'center' }
         ],
         loadonce: false,
         //styleUI: 'Bootstrap',
@@ -76,7 +77,8 @@
         multiselect: true,
         pager: '#jqGridAuxPag',
 
-        loadComplete: function () {
+        loadComplete: function ()
+        {
             var iCol = getColumnIndexByName($grid, 'act');
             $(this).find(">tbody>tr.jqgrow>td:nth-child(" + (iCol + 1) + ")")
                 .each(function () {

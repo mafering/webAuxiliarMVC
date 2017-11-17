@@ -1432,7 +1432,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <RepeatRowHeaders>true</RepeatRowHeaders>
-        <DataSetName>dsAuxServicioDetalle</DataSetName>
+        <DataSetName>dsAuxServicioPago</DataSetName>
         <Height>3.13229cm</Height>
         <Width>25.50209cm</Width>
         <Style>

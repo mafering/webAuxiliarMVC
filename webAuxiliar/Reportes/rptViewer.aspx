@@ -19,9 +19,9 @@
             runat="server" 
             SizeToReportContent="true"
             Width="90%" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowPrintButton="False">
-            <LocalReport 
+            <%--<LocalReport 
                 ReportPath="Reportes\RDLC\rptAuxObra.rdlc">
-            </LocalReport>
+            </LocalReport>--%>
         </rsweb:ReportViewer>
         &nbsp;&nbsp;&nbsp;
     </div>

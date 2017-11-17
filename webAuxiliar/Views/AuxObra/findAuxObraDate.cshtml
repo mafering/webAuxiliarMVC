@@ -11,16 +11,14 @@
     @*<meta name="viewport" content="width=device-width, initial-scale=1">*@
     @*<link rel="stylesheet" href="~/Content/font-awesome-4.7.0/css/font-awesome.css">*@
     
-    <script type="text/ecmascript" src="~/Scripts/jquery-2.1.1.min.js"></script>
+    @*<script type="text/ecmascript" src="~/Scripts/jquery-2.1.1.min.js"></script>
     <script type="text/ecmascript" src="~/Scripts/jqGridTrirand/jquery.jqGrid.js"></script>
     
     <script type="text/ecmascript" src="~/Scripts/jqGridTrirand/i18n/grid.locale-es.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    <script src="~/Scripts/pdfmake0.1.33/pdfmake.min.js"></script>
-    <script src="~/Scripts/pdfmake0.1.33/vfs_fonts.js"></script>
-    <script type="text/javascript" language="javascript" src="~/Scripts/jszip3.1.4-22/jszip.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/themes/base/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="~/Scripts/jqGridTrirand/css/ui.jqgrid.css">
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>*@
+    
+    @*<link rel="stylesheet" type="text/css" media="screen" href="~/Content/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Scripts/jqGridTrirand/css/ui.jqgrid.css">*@
 
 </head>
 
@@ -53,17 +51,19 @@
 </body>
 </html>
 
-
-
 @section scripts
 {
-    @*<link rel="stylesheet" href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="~/Scripts/jqGridTrirand/css/ui.jqgrid.css" />
-    <script type="text/ecmscript" src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" media="screen" src="~/Scripts/jqGridTrirand/i18n/grid.locale-es.js"></script>
-    <script type="text/javascript" media="screen" src="~/Scripts/jqGridTrirand/jquery.jqGrid.min.js"></script>
-    <script type="text/javascript" language="javascript" src="~/Scripts/jszip3.1.4-22/jszip.js"></script>*@
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/free-jqGrid-4.15.2/ui.jqgrid.min.css">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    @*<<scripts para exportar>> INICIO *@
+    <script src="~/Scripts/pdfmake0.1.33/pdfmake.min.js"></script>
+    <script src="~/Scripts/pdfmake0.1.33/vfs_fonts.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/jszip3.1.4-22/jszip.min.js"></script>
+    @*<<scripts para exportar>> FIN *@
+    <script src="~/Scripts/free-jqGrid-4.15.2/i18n/grid.locale-es.js"></script>
+    <script src="~/Scripts/free-jqGrid-4.15.2/jquery.jqgrid.min.js"></script>
     
     <script src="~/Scripts/scriptAuxObra.js"></script>
 }

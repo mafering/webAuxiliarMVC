@@ -53,14 +53,15 @@ namespace webAuxiliar.Reportes
                 else if (Request.QueryString["rptAuxServicio"] != null)
                 {
                     searchText = Request.QueryString["rptAuxServicio"].ToString();
+
                     AuxiliarServicio objAuxServNro = new AuxiliarServicio();
                     objAuxServNro.NumeroAux = searchText;
-                    List<AuxiliarServicio> listaAuxObra;
-                    listaAuxObra = objAuxServicioBEL.findAuxServNro(objAuxServNro);
+                    List<AuxiliarServicio> listaAuxServicio;
+                    listaAuxServicio = objAuxServicioBEL.findAuxServNro(objAuxServNro);
 
                     rvDataViewer.LocalReport.ReportPath = Server.MapPath("~/Reportes/RDLC/rptAuxServicio.rdlc");
                     rvDataViewer.LocalReport.DataSources.Clear();
-                    ReportDataSource rdc1 = new ReportDataSource("dsAuxServicio", listaAuxObra);
+                    ReportDataSource rdc1 = new ReportDataSource("dsAuxServicio", listaAuxServicio);
                     rvDataViewer.LocalReport.DataSources.Add(rdc1);
 
                     rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxServicioDetalle);
@@ -84,16 +85,13 @@ namespace webAuxiliar.Reportes
 
         public void sRptAuxServicioDetalle(object sender, SubreportProcessingEventArgs e)
         {
-
             string auxServicioID = e.Parameters["NumeroAux"].Values[0].ToString();
 
             AuxiliarServicioDet objAuxServiNroDet = new AuxiliarServicioDet();
             objAuxServiNroDet.NumeroAux = auxServicioID;
             List<AuxiliarServicioDet> listaAuxServicioDet;  
-            listaAuxServicioDet = objAuxServiDetBEL.findAuxServNro(objAuxServiNroDet); //findAuxServNro(objAuxServiNroDet);
+            listaAuxServicioDet = objAuxServiDetBEL.findAuxServNroDet(objAuxServiNroDet);
             e.DataSources.Add(new ReportDataSource("dsAuxServicioPago", listaAuxServicioDet));
-
-
         }
 
         static DataTable ConvertListToDataTable(List<AuxiliarObra> listaAuxObra)
@@ -124,5 +122,6 @@ namespace webAuxiliar.Reportes
 
             return table;
         }
+
     }
 }

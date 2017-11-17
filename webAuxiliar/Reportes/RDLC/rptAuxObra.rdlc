@@ -580,6 +580,7 @@
         </TablixRowHierarchy>
         <DataSetName>dsAuxObraCabecera</DataSetName>
         <Top>0.17639cm</Top>
+        <Left>0.00346cm</Left>
         <Height>3.34255cm</Height>
         <Width>26.05368cm</Width>
         <Style>
@@ -614,7 +615,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>10.25735in</Width>
+  <Width>10.25872in</Width>
   <Page>
     <PageHeader>
       <Height>2.25488cm</Height>
@@ -768,7 +769,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.07053cm</Top>
+          <Top>0.07052cm</Top>
           <Left>22.78638cm</Left>
           <Height>0.6cm</Height>
           <Width>3.07142cm</Width>
@@ -802,7 +803,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.07054cm</Top>
+          <Top>0.07053cm</Top>
           <Left>0.25392cm</Left>
           <Height>0.6cm</Height>
           <Width>6.83098cm</Width>

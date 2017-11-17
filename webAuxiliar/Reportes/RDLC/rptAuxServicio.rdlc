@@ -2,7 +2,7 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="lstAuxObra">
+      <Tablix Name="lstAuxServicio">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
@@ -255,7 +255,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Fecha Contrato:</Value>
+                                  <Value>Fecha Servicio:</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -289,7 +289,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Monto Contrato:</Value>
+                                  <Value>Monto Servicio:</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -323,7 +323,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Plazo Contrato:</Value>
+                                  <Value>Plazo Servicio:</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -357,7 +357,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Objeto Contrato:</Value>
+                                  <Value>Objeto Serivicio:</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -578,7 +578,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsAuxServicioCabecera</DataSetName>
+        <DataSetName>dsAuxServicio</DataSetName>
         <Top>0.17639cm</Top>
         <Height>3.34255cm</Height>
         <Width>26.05368cm</Width>
@@ -666,14 +666,14 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox1">
+        <Textbox Name="txtAuxServicioNro">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!NumeroAux.Value, "dsAuxObraCabecera")</Value>
+                  <Value>=First(Fields!NumeroAux.Value, "dsAuxServicio")</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -686,11 +686,10 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>1.43827cm</Top>
-          <Left>14.67219cm</Left>
+          <Left>14.95441cm</Left>
           <Height>0.7149cm</Height>
-          <Width>2.24624cm</Width>
+          <Width>1.96402cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -723,9 +722,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>1.43827cm</Top>
-          <Left>9.83184cm</Left>
+          <Left>9.75247cm</Left>
           <Height>0.7149cm</Height>
-          <Width>4.80507cm</Width>
+          <Width>5.16667cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -768,7 +767,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.07052cm</Top>
+          <Top>0.0705cm</Top>
           <Left>22.78638cm</Left>
           <Height>0.6cm</Height>
           <Width>3.07142cm</Width>
@@ -802,7 +801,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.07053cm</Top>
+          <Top>0.07051cm</Top>
           <Left>0.25392cm</Left>
           <Height>0.6cm</Height>
           <Width>6.83098cm</Width>

@@ -61,10 +61,10 @@ namespace webAuxiliar.Controllers
                         listaAuxServicio = listaAuxServicio.Where(t => t.NumeroAux.Contains(searchString)).ToList();
                         break;
                     case "by_contratista":
-                        listaAuxServicio = listaAuxServicio.Where(t => t.Contratista.ToUpper().Contains(searchString)).ToList();
+                        listaAuxServicio = listaAuxServicio.Where(t => t.Contratista.ToUpper().Contains(searchString.ToUpper())).ToList();
                         break;
                     case "by_objetoCto":
-                        listaAuxServicio = listaAuxServicio.Where(t => t.ObjetoCto.Contains(searchString)).ToList();
+                        listaAuxServicio = listaAuxServicio.Where(t => t.ObjetoCto.Contains(searchString.ToUpper())).ToList();
                         break;
                 }
             }
