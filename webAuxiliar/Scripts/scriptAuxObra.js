@@ -178,6 +178,14 @@ function getSelectRows()
         {
             result += selectedIDs[i] + ",";
         }
+
+        //INICIO script reporte //
+        var rptAuxObra = $("#rptAuxObra").val();
+        var src = '../Reportes/rptViewer.aspx?';
+        src = src + "rptAuxObra=" + rptAuxObra
+        var iframe = '<iframe id="myReportFrame" width="100%" height="800px" scrolling="no" frameborder="0" src="' + src + '" allowfullscreen></iframe>';
+        $("#divReport").html(iframe);
+        //FIN script reporte //
         alert(result);
     }
 }
