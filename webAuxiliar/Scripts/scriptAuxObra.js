@@ -54,6 +54,7 @@
             },
             { key: false, name: 'FechaCto', index: 'by_fechaObra', editable: false, width: 30, align: 'center' }
         ],
+        iconSet: "fontAwesome",
         loadonce: false,
         //styleUI: 'Bootstrap',
         sortname: 'by_numeroAux',
@@ -74,7 +75,7 @@
         },
         autowidth: true,
         rownumbers: true,
-        multiselect: true,
+        multiselect: false,
         pager: '#jqGridAuxPag',
 
         loadComplete: function ()
@@ -91,8 +92,18 @@
                             $(this).removeClass('ui-state-hover');
                         },
                         click: function (e) {
-                            alert("'Custom' button is clicked in the rowis=" +
-                                $(e.target).closest("tr.jqgrow").attr("id") + " !");
+                            //alert("'Custom' button is clicked in the rowis=" +
+                            //    $(e.target).closest("tr.jqgrow").attr("id") + " !");
+
+                            //INICIO script reporte //
+                            var rptAuxObra = $(e.target).closest("tr.jqgrow").attr("id") //rowKey; //$("#rptAuxObra").val();
+                            var src = '../Reportes/rptViewer.aspx?';
+                            src = src + "rptAuxObra=" + rptAuxObra
+                            var iframe = '<iframe id="myReportFrame" width="100%" height="800px" scrolling="no" frameborder="0" src="' + src + '" allowfullscreen></iframe>';
+                            $("#divReport").html(iframe);
+                            //FIN script reporte //
+
+
                         }
                     }
                   ).css({ "margin-right": "5px", float: "left", cursor: "pointer" })
@@ -116,17 +127,17 @@
         .jqGrid('navButtonAdd', '#jqGridAuxPag',
         {
             caption: "Exportar Excel ",
-            buttonicon: 'ui-icon-transfer-e-w',
+            buttonicon: 'fa-file-excel-o', //'ui-icon-transfer-e-w',
             position: 'last',
             onClickButton: exportExcel  // () { exportExcel();}
         })
-        .jqGrid('navButtonAdd', '#jqGridAuxPag',
-        {
-            caption: "Exportar PDF ",
-            buttonicon: 'ui-icon-document',
-            //position: 'last',
-            onClickButton: exportPDF  // () { exportExcel();}
-        })
+        //.jqGrid('navButtonAdd', '#jqGridAuxPag',
+        //{
+        //    caption: "Exportar PDF ",
+        //    buttonicon: 'ui-icon-document',
+        //    //position: 'last',
+        //    onClickButton: exportPDF  // () { exportExcel();}
+        //})
 
 });
 
@@ -168,24 +179,26 @@ function getSelectRows()
     var gridRow = $("#jqGridAux");
     var rowKey = gridRow.getGridParam("selrow");
 
-    if (!rowKey)
-        alert("No hay filas seleccionadas");
-    else
-    {
-        var selectedIDs = gridRow.getGridParam("selarrrow");
-        var result = "";
-        for (var i = 0; i < selectedIDs.length; i++)
-        {
-            result += selectedIDs[i] + ",";
-        }
+    //INICIO script reporte //
+    var rptAuxObra = rowKey; //$("#rptAuxObra").val();
+    var src = '../Reportes/rptViewer.aspx?';
+    src = src + "rptAuxObra=" + rptAuxObra
+    var iframe = '<iframe id="myReportFrame" width="100%" height="800px" scrolling="no" frameborder="0" src="' + src + '" allowfullscreen></iframe>';
+    $("#divReport").html(iframe);
+    //FIN script reporte //
 
-        //INICIO script reporte //
-        var rptAuxObra = $("#rptAuxObra").val();
-        var src = '../Reportes/rptViewer.aspx?';
-        src = src + "rptAuxObra=" + rptAuxObra
-        var iframe = '<iframe id="myReportFrame" width="100%" height="800px" scrolling="no" frameborder="0" src="' + src + '" allowfullscreen></iframe>';
-        $("#divReport").html(iframe);
-        //FIN script reporte //
-        alert(result);
-    }
+    //if (!rowKey)
+    //    alert("No hay filas seleccionadas");
+    //else
+    //{
+    //    var selectedIDs = gridRow.getGridParam("selarrrow");
+    //    var result = "";
+    //    for (var i = 0; i < selectedIDs.length; i++)
+    //    {
+    //        result += selectedIDs[i] + ",";
+    //    }
+
+  
+    //    alert(result);
+    //}
 }

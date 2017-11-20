@@ -76,8 +76,42 @@
         },
         autowidth: true,
         rownumbers: true,
-        multiselect: true,
+        multiselect: false,
         pager: '#jqGridAuxPag',
+
+        loadComplete: function ()
+        {
+            var iCol = getColumnIndexByName($grid, 'act');
+            $(this).find(">tbody>tr.jqgrow>td:nth-child(" + (iCol + 1) + ")")
+                .each(function () {
+                    $("<div>", {
+                        title: "Imprimir",
+                        mouseover: function () {
+                            $(this).addClass('ui-state-hover');
+                        },
+                        mouseout: function () {
+                            $(this).removeClass('ui-state-hover');
+                        },
+                        click: function (e)
+                        {
+                            //alert("'Custom' button is clicked in the rowis=" +
+                            //    $(e.target).closest("tr.jqgrow").attr("id") + " !");
+
+                            //INICIO script reporte //
+                            var rptAuxServicio = $(e.target).closest("tr.jqgrow").attr("id") //rowKey; //$("#rptAuxObra").val();
+                            var src = '../Reportes/rptViewer.aspx?';
+                            src = src + "rptAuxServicio=" + rptAuxServicio
+                            var iframe = '<iframe id="myReportFrame" width="100%" height="800px" scrolling="no" frameborder="0" src="' + src + '" allowfullscreen></iframe>';
+                            $("#divReport").html(iframe);
+                            //FIN script reporte //
+                        }
+                    }
+                  ).css({ "margin-right": "5px", float: "left", cursor: "pointer" })
+                   .addClass("ui-pg-div ui-inline-custom")
+                   .append('<span class="ui-icon ui-icon-print"></span>')
+                   .prependTo($(this).children("div"));
+                })
+        }
 
     }).navGrid('#jqGridAuxPag', { edit: false, add: false, del: false, search: true, searchtext: "Buscar Auxiliar", refresh: true, view: false },
         {}, //default setting for edit
@@ -93,17 +127,17 @@
         .jqGrid('navButtonAdd', '#jqGridAuxPag',
         {
             caption: "Exportar Excel ",
-            buttonicon: 'ui-icon-transfer-e-w',
+            buttonicon: 'fa-file-excel-o', //'ui-icon-transfer-e-w',
             position: 'last',
             onClickButton: exportExcel  // () { exportExcel();}
         })
-        .jqGrid('navButtonAdd', '#jqGridAuxPag',
-        {
-            caption: "Exportar PDF ",
-            buttonicon: 'ui-icon-document',
-            //position: 'last',
-            onClickButton: exportPDF  // () { exportExcel();}
-        })
+        //.jqGrid('navButtonAdd', '#jqGridAuxPag',
+        //{
+        //    caption: "Exportar PDF ",
+        //    buttonicon: 'ui-icon-document',
+        //    //position: 'last',
+        //    onClickButton: exportPDF  // () { exportExcel();}
+        //})
 
 });
 
