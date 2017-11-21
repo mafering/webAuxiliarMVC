@@ -18,6 +18,7 @@ namespace webAuxiliar.Controllers
         {
             objAuxObraBEL = new AuxObraBEL();
         }
+
         // GET: AuxObra
         public ActionResult Inicio()
         {
@@ -26,7 +27,6 @@ namespace webAuxiliar.Controllers
             //return null;
         }
 
-        //[HttpPost]
         public ActionResult findAuxObraNro(string txtAuxNro)
         {
 
@@ -51,8 +51,6 @@ namespace webAuxiliar.Controllers
             //return null;
         }
 
-        //[HttpPost]
-        //ActionResult
         public JsonResult getAuxObra(string sidx, string sord, int page, int rows, bool _search,
                                      string searchField, string searchOper, string searchString, 
                                      string beginDate, string endDate)
@@ -112,6 +110,21 @@ namespace webAuxiliar.Controllers
             };
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
+
+        // ADD: AuxObra
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+        // DEL: AuxObra
+
+        // UPD: AuxObra
+
+
+
 
     }
 }

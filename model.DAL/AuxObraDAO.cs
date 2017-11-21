@@ -23,7 +23,17 @@ namespace model.DAL
 
         public void create(AuxiliarObra objAuxObra)
         {
-            string create = "INSERT INTO... VALUES('" + objAuxObra.NumeroAux + "', ";
+            string create = @"INSERT INTO CONTRA4 VALUES('" 
+                            + objAuxObra.NumeroAux + "', '"
+                            + objAuxObra.CedRuc + "', '"
+                            + objAuxObra.Contratista + "', '"
+                            + objAuxObra.ObjetoCto + "', '"
+                            + objAuxObra.Partida + "', '"
+                            + objAuxObra.MontoCto + "', '"
+                            + objAuxObra.FechaCto + "', '"
+                            + objAuxObra.Plazo + "', '"
+                            + objAuxObra.CodigoCto + "')";
+
             try
             {
                 comandoObj = new OdbcCommand(create, conexionObj.getCon());
