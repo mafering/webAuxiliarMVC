@@ -5,9 +5,12 @@
 <html lang="es-ec">
 <head>
     <style>
-        h3{ background-color: powderblue; }
+        h3 {
+            background-color: powderblue;
+        }
     </style>
-    
+    <link type="text/css" rel="stylesheet" href="~/Scripts/waitMe/waitMe.css">
+
 </head>
 <body>
     <div class="row">
@@ -43,7 +46,44 @@
 
 @section scripts
 {
-    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-2.1.1.min.js"></script>*@
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/waitMe/waitMe.js"></script>
+    <script>
+        $(function ()
+        {
+            var current_effect = 'roundBounce';
+
+            $('#btnSearchObra').click(function ()
+            {
+                run_waitMe(current_effect);
+            });
+
+            //$('#waitMe_ex_close').click(function () {
+            //    $('#container > form').waitMe('hide');
+            //});
+
+            function run_waitMe(effect)
+            {
+                text = 'Please wait...';
+                fontSize = '';
+                $('#btnSearchObra').waitMe(
+                {
+                    effect: effect,
+                    text: '',
+                    bg: 'rgba(255,255,255,0.7)',
+                    color: '#000',
+                    //maxSize: maxSize,
+                    waitTime: -1,
+                    //source: 'img.svg',
+                    //textPos: textPos,
+                    //fontSize: '',
+                    onClose: function () { }
+                })
+            }
+
+        });
+    </script>
     <script>
         $(function () {
             $('#btnSearchObra').click(function () {
@@ -66,11 +106,10 @@
         });
 
     </script>
-
     <script>
         $(function () {
             $('#btnSearchServ').click(function () {
-
+                $('#btnSearchObra').waitMe('hide');
                 var rptAuxServicio = $("#rptAuxServicio").val();
 
                 //ASPX page URL to load report
@@ -88,5 +127,6 @@
             });
         });
 
-</script>
+    </script>
+
 }

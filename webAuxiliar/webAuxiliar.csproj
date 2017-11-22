@@ -447,6 +447,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\free-jqGrid-4.15.2\ui.jqgrid.min.css.map" />
     <Content Include="Content\ui.jqgrid.min.css.map" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\LocalAuxWebIIS.pubxml" />
     <None Include="Properties\PublishProfiles\ServerAuxWebIIS.pubxml" />
     <None Include="Reportes\dsAuxiliarObra.xsd">
@@ -711,6 +712,7 @@
     <Content Include="Scripts\jqGridTrirand\jquery-1.11.0.min.js" />
     <Content Include="Scripts\jqGridTrirand\jquery.jqGrid.js" />
     <Content Include="Scripts\jqGridTrirand\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -721,8 +723,6 @@
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jszip3.1.4-22\jszip.js" />
     <Content Include="Scripts\jszip3.1.4-22\jszip.min.js" />
-    <Content Include="Scripts\loader\loader_css.css" />
-    <Content Include="Scripts\loader\loader_plugin.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\pdfmake0.1.33\pdfmake.min.js" />
     <Content Include="Scripts\pdfmake0.1.33\vfs_fonts.js" />
@@ -730,6 +730,10 @@
     <Content Include="Scripts\scriptAuxServicio.js" />
     <Content Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <Content Include="Scripts\typings\jquery\jquery.d.ts" />
+    <Content Include="Scripts\waitMe\waitMe.css" />
+    <Content Include="Scripts\waitMe\waitMe.js" />
+    <Content Include="Scripts\waitMe\waitMe.min.css" />
+    <Content Include="Scripts\waitMe\waitMe.min.js" />
     <Content Include="Scripts\webshim\css\metro.css" />
     <Content Include="Scripts\webshim\css\rounded-shadow.css" />
     <Content Include="Scripts\webshim\polyfiller.js" />
@@ -941,7 +945,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\temp\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
