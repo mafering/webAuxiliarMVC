@@ -712,6 +712,8 @@
     <Content Include="Scripts\jqGridTrirand\jquery-1.11.0.min.js" />
     <Content Include="Scripts\jqGridTrirand\jquery.jqGrid.js" />
     <Content Include="Scripts\jqGridTrirand\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jqLoading\loading.css" />
+    <Content Include="Scripts\jqLoading\loading.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
