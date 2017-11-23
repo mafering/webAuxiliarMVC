@@ -111,6 +111,33 @@ namespace webAuxiliar.Controllers
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
+
+
+        public JsonResult getAuxObraDet(string sidx, string sord, int page, int rows, bool _search,
+                                        string searchField, string searchOper, string searchString, string auxObraID)
+        {
+            AuxiliarObraDet objAuxObraNroDet = new AuxiliarObraDet();
+            objAuxObraNroDet.NumeroAux = auxObraID;
+            List<AuxiliarObraDet> listaAuxObraDet;
+            listaAuxObraDet = objAuxObraBEL.findAuxObraNroDet(objAuxObraNroDet);
+
+            sord = (sord == null) ? "" : sord;
+            int pageIndex = Convert.ToInt32(page) - 1;
+            int pageSize = rows;
+
+
+            int totalRecords = listaAuxObraDet.Count();
+            var totalPages = (int)Math.Ceiling((float)totalRecords / (float)rows);
+            var jsonData = new
+            {
+                total = totalPages,
+                page,
+                records = totalRecords,
+                rows = listaAuxObraDet
+            };
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
         // ADD: AuxObra
 
         public ActionResult Create()

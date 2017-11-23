@@ -71,13 +71,146 @@
             total: "total",
             records: "records",
             repeatitems: false,
-            id: "0"
+            id: "0",
+            subgrid: {repeatitems: false}
         },
         autowidth: true,
         rownumbers: true,
         multiselect: false,
         pager: '#jqGridAuxPag',
 
+        //*INICIO: subGrid*//
+        subGrid: true,
+        //subGridOptions: {
+        //    "plusicon": "ui-icon-triangle-1-e",
+        //    "minusicon": "ui-icon-triangle-1-s",
+        //    "openicon": "ui-icon-arrowreturn-1-e",
+        //    "reloadOnExpand": false,
+        //    "selectOnExpand": true
+        //},
+        
+        subGridRowExpanded: function(subgrid_id, row_id) 
+        {
+            var subgrid_table_id, pager_id;
+            subgrid_table_id = subgrid_id + '_t';
+            pager_id = 'p_' + subgrid_table_id;
+
+            $("#" + subgrid_id).html("<table id='" + subgrid_table_id + "' class='scroll'></table><div id='" + pager_id + "' class='scroll'></div>");
+
+            $('#' + subgrid_table_id).jqGrid(
+            {
+                url: '/AuxObra/getAuxObraDet/',
+                datatype: 'json',
+                mtype: 'Get',
+                postData:
+                {
+                    auxObraID: function () { return row_id; },
+                },
+                name: [],
+                colNames: ['', 'Planilla', 'Doc Referencia', 'Concepto', 'Fecha Pago', 'Valor Entregado', 'Valor Devengado', 'Valor Multa', 'Valor Planilla', 'Valor Reajuste', 'Valor Finanzas'],
+                colModel:
+                [
+                    { name: 'NumeroAux', index: 'by_numeroAux', hidden: true},
+                    { name: 'NumeroPla', index: 'by_numeroPla', editable: false, width: '15%', align: "center", sortable: true, firstsortorder: 'desc' },
+                    { name: 'DocReferencia', index: 'by_docRef', editable: false, width: '30%', align: "center", sortable: true },
+                    { name: 'Concepto', index: 'by_conceptoc', editable: false, width: '100%', sortable: true },
+                    { name: 'FechaPago', index: 'by_fechaPago', editable: false, width: 25, align: 'center' },
+                    {
+                        name: 'ValorEntregado', width: 25, align: 'right', formatter: 'currency',
+                        formatoptios:
+                        {
+                            thousandsSeparator: ',',
+                            decimalSeparator: '.',
+                            decimalPlaces: 2,
+                            prefix: '$ ',
+                            //suffix: '',
+                            defaultValue: '$ 0.00'
+                        }
+                    },
+                    { //Valor Devengado
+                        name: 'RetencionPla', width: 25, align: 'right', formatter: 'currency',
+                        formatoptios:
+                        {
+                            thousandsSeparator: ',',
+                            decimalSeparator: '.',
+                            decimalPlaces: 2,
+                            prefix: '$ ',
+                            //suffix: '',
+                            defaultValue: '$ 0.00'
+                        }
+                    },
+                    {
+                        name: 'ValorMulta', width: 25, align: 'right', formatter: 'currency',
+                        formatoptios:
+                        {
+                            thousandsSeparator: ',',
+                            decimalSeparator: '.',
+                            decimalPlaces: 2,
+                            prefix: '$ ',
+                            //suffix: '',
+                            defaultValue: '$ 0.00'
+                        }
+                    },
+                    {
+                        name: 'ValorPlanilla', width: 25, align: 'right', formatter: 'currency',
+                        formatoptios:
+                        {
+                            thousandsSeparator: ',',
+                            decimalSeparator: '.',
+                            decimalPlaces: 2,
+                            prefix: '$ ',
+                            //suffix: '',
+                            defaultValue: '$ 0.00'
+                        }
+                    },
+                    {
+                        name: 'ValorReajuste', width: 25, align: 'right', formatter: 'currency',
+                        formatoptios:
+                        {
+                            thousandsSeparator: ',',
+                            decimalSeparator: '.',
+                            decimalPlaces: 2,
+                            prefix: '$ ',
+                            //suffix: '',
+                            defaultValue: '$ 0.00'
+                        }
+                    },
+                    {
+                        name: 'ValorFinanzas', width: 25, align: 'right', formatter: 'currency',
+                        formatoptios:
+                        {
+                            thousandsSeparator: ',',
+                            decimalSeparator: '.',
+                            decimalPlaces: 2,
+                            prefix: '$ ',
+                            //suffix: '',
+                            defaultValue: '$ 0.00'
+                        }
+                    },
+                ],
+                rowNum: 10,
+                sortname: 'by_numeroPla',
+                autowidth: true,
+                pager: pager_id,
+                viewrecords: true,
+                caption: 'Detalle de Planilla de Onra',
+                emptyrecords: 'No hay registros de plniaññas disponibles para mostrar',
+                jsonReader: {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    id: "0",
+                    repeatitems: false
+                },
+            });
+            $("#" + subgrid_table_id).jqGrid('navGrid', "#" + pager_id, { edit: false, add: false, del: false });
+        
+        },
+
+        //*FIN: subGrid*//
+
+        //*INICIO: Opción+Icono Imprimir*//
         loadComplete: function ()
         {
             var iCol = getColumnIndexByName($grid, 'act');
@@ -111,8 +244,11 @@
                    .append('<span class="ui-icon ui-icon-print"></span>')
                    .prependTo($(this).children("div"));
                 })
-        }
+        },
+        //*FIN: Opción+Icono Imprimir*//
 
+        
+                
     }).navGrid('#jqGridAuxPag', { edit: false, add: false, del: false, search: true, searchtext: "Buscar Auxiliar", refresh: true, view: false },
         {}, //default setting for edit
         {}, //default setting for add
