@@ -27,8 +27,8 @@ namespace model.DAL
             string strSQL = @"SELECT ADQUI2.NUMERO_B, ADQUI2.NPLANI_B, ADQUI2.CHEQUE_B, ADQUI2.CONCEP_B, ADQUI2.FECHAP_B, ADQUI2.RETENC_B, ADQUI2.ENTREG_B, "
                           + @"ADQUI2.PLANIL_B, ADQUI2.MULTAS_B, ADQUI2.FINAN__B "
                           + @"FROM ADQUI2 "
-                          + @"WHERE ADQUI2.NUMERO_B = '" + objAuxServicioDet.NumeroAux + "'" 
-                          + @"ORDER BY ADQUI2.NUMERO_B, ADQUI2.NPLANI_B ";
+                          + @"WHERE ADQUI2.NUMERO_B = '" + objAuxServicioDet.NumeroAux + "' " 
+                          + @"ORDER BY ADQUI2.NPLANI_B";
             try
             {
                 comandoObj = new OdbcCommand(strSQL, conexionObj.getCon());

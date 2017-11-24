@@ -149,10 +149,10 @@ namespace model.DAL
         {
             List<AuxiliarObra> listaAuxObra = new List<AuxiliarObra>();
 
-            string strSQL = @"SELECT NUMERO, year([FECHAC]) as ANIO, INCREMENTO AS CEDRUCS, CONTRATI as CONTRATISTA, " +
-                            @"DETALLE & ' ' & DETALLE2 AS OBJETO, PARTIDA, MONTOCONT AS MONTO_CTO, FECHAC, PLAZO, PRORROGA AS COD_CONTRATO " +
-                            @"FROM CONTRA4 " +
-                            @"ORDER BY FECHAC DESC";
+            string strSQL = @"SELECT NUMERO, year([FECHAC]) as ANIO, INCREMENTO AS CEDRUCS, CONTRATI as CONTRATISTA, "
+                          + @"DETALLE & ' ' & DETALLE2 AS OBJETO, PARTIDA, MONTOCONT AS MONTO_CTO, FECHAC, PLAZO, PRORROGA AS COD_CONTRATO "
+                          + @"FROM CONTRA4 "
+                          + @"ORDER BY FECHAC DESC";
             try
             {
                 comandoObj = new OdbcCommand(strSQL, conexionObj.getCon());

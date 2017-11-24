@@ -58,7 +58,7 @@
         loadonce: false,
         //styleUI: 'Bootstrap',
         sortname: 'by_numeroAux',
-        sortorder: 'desc',
+        sortorder: 'desc', //'asc', 
         rowNum: 20,
         rowList: [20, 40, 60, 80, 100],
         height: '100%',
@@ -77,17 +77,18 @@
         autowidth: true,
         rownumbers: true,
         multiselect: false,
+        toppager: false,
         pager: '#jqGridAuxPag',
 
         //*INICIO: subGrid*//
         subGrid: true,
-        //subGridOptions: {
-        //    "plusicon": "ui-icon-triangle-1-e",
-        //    "minusicon": "ui-icon-triangle-1-s",
-        //    "openicon": "ui-icon-arrowreturn-1-e",
-        //    "reloadOnExpand": false,
-        //    "selectOnExpand": true
-        //},
+        subGridOptions: {
+            plusicon: "fa-plus-circle", // "ui-icon-triangle-1-e",
+            minusicon: "fa-minus-circle", //"ui-icon-triangle-1-s",
+            //openicon: "ui-icon-arrowreturn-1-e",
+            reloadOnExpand: true,
+            selectOnExpand: true
+        },
         
         subGridRowExpanded: function(subgrid_id, row_id) 
         {
@@ -105,14 +106,15 @@
                 postData:
                 {
                     auxObraID: function () { return row_id; },
+                    //auxObraID: row_id
                 },
                 name: [],
-                colNames: ['', 'Planilla', 'Doc Referencia', 'Concepto', 'Fecha Pago', 'Valor Entregado', 'Valor Devengado', 'Valor Multa', 'Valor Planilla', 'Valor Reajuste', 'Valor Finanzas'],
+                colNames: ['', 'Planilla', 'Referencia', 'Concepto', 'Fecha Pago', 'V. Entregado', 'V. Devengado', 'Valor Multa', 'V. Planilla', 'V. Reajuste', 'V. Finanzas'],
                 colModel:
                 [
                     { name: 'NumeroAux', index: 'by_numeroAux', hidden: true},
-                    { name: 'NumeroPla', index: 'by_numeroPla', editable: false, width: '15%', align: "center", sortable: true, firstsortorder: 'desc' },
-                    { name: 'DocReferencia', index: 'by_docRef', editable: false, width: '30%', align: "center", sortable: true },
+                    { name: 'NumeroPla', index: 'by_numeroPla', editable: false, width: '15%', align: "center", sortable: false, },
+                    { name: 'DocReferencia', index: 'by_docRef', editable: false, width: '30%', align: "center", sortable: false },
                     { name: 'Concepto', index: 'by_conceptoc', editable: false, width: '100%', sortable: true },
                     { name: 'FechaPago', index: 'by_fechaPago', editable: false, width: 25, align: 'center' },
                     {
@@ -188,13 +190,16 @@
                         }
                     },
                 ],
+                loadonce: true,
                 rowNum: 10,
-                sortname: 'by_numeroPla',
+                rowList: [10, 20, 50, 100],
+                //sortname: 'by_numeroPla',
+                //sortorder: 'asc',
                 autowidth: true,
-                pager: pager_id,
+                pager:"#" + pager_id,
                 viewrecords: true,
-                caption: 'Detalle de Planilla de Onra',
-                emptyrecords: 'No hay registros de plniaññas disponibles para mostrar',
+                caption: 'Detalle de Planilla(s) de Obra',
+                emptyrecords: 'No hay registros de planillas disponibles para mostrar',
                 jsonReader: {
                     root: "rows",
                     page: "page",
@@ -204,10 +209,9 @@
                     repeatitems: false
                 },
             });
-            $("#" + subgrid_table_id).jqGrid('navGrid', "#" + pager_id, { edit: false, add: false, del: false });
+            $("#" + subgrid_table_id).jqGrid('navGrid', "#" + pager_id, { edit: false, add: false, del: false, search: false, refresh: false });
         
         },
-
         //*FIN: subGrid*//
 
         //*INICIO: Opción+Icono Imprimir*//

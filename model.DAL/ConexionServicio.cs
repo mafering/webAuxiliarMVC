@@ -23,7 +23,6 @@ namespace model.DAL
             connObj.ConnectionString = cs;
         }
 
-
         public static ConexionServicio estadoActual()
         {
 

@@ -38,14 +38,7 @@
                 </div>
                 <div class="col-md-2">
                     <button type="button" id="btnSearchServ" class="btn btn-raised btn-primary btn-block">Generar</button>
-
                 </div>
-                <script>
-                    $('#btnSearchServ').click(function ()
-                    {
-                        $('body').loading
-                    });
-                </script>
             </div>
 
         </form>
@@ -154,7 +147,7 @@
     <script>
         $(function () {
             $('#btnSearchServ').click(function () {
-                $('#btnSearchObra').waitMe('hide');
+                //$('#btnSearchObra').waitMe('hide');
                 var rptAuxServicio = $("#rptAuxServicio").val();
 
                 //ASPX page URL to load report

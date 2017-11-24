@@ -24,11 +24,11 @@ namespace model.DAL
         {
             List<AuxiliarObraDet> listaAuxObraNroDet = new List<AuxiliarObraDet>();
 
-            string strSQL = @"SELECT CONTRA2.NUMERO, CONTRA2.NPLAN, CONTRA2.CONTROL, CONTRA2.CHEQUE AS REFERENCIA, CONTRA2.CONCEP as CONCEPTO, CONTRA2.FECHAP, " +
-                            @"CONTRA2.MULTAS, CONTRA2.RETENCION, CONTRA2.ENTREGADO, CONTRA2.PLANILLADO, CONTRA2.REAJUSTE, CONTRA2.INEC, CONTRA2.FINAN " +
-                            @"FROM CONTRA2 " +
-                            @"WHERE CONTRA2.NUMERO = '" + objAuxObraDet.NumeroAux + "'" +
-                            @"ORDER BY CONTRA2.NUMERO, CONTRA2.NPLAN ";
+            string strSQL = @"SELECT CONTRA2.NUMERO, CONTRA2.NPLAN, CONTRA2.CONTROL, CONTRA2.CHEQUE AS REFERENCIA, CONTRA2.CONCEP as CONCEPTO, CONTRA2.FECHAP, " 
+                          + @"CONTRA2.MULTAS, CONTRA2.RETENCION, CONTRA2.ENTREGADO, CONTRA2.PLANILLADO, CONTRA2.REAJUSTE, CONTRA2.INEC, CONTRA2.FINAN " 
+                          + @"FROM CONTRA2 " 
+                          + @"WHERE CONTRA2.NUMERO = '" + objAuxObraDet.NumeroAux + "' " 
+                          + @"ORDER BY CONTRA2.NPLAN ";
 
             try
             {

@@ -92,5 +92,31 @@ namespace webAuxiliar.Controllers
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult getAuxServicioDet(string sidx, string sord, int page, int rows, string auxServicioID)
+        {
+            AuxiliarServicioDet objAuxServiNroDet = new AuxiliarServicioDet();
+            objAuxServiNroDet.NumeroAux = auxServicioID;
+            List<AuxiliarServicioDet> listaAuxServicioDet;
+            listaAuxServicioDet = objAuxServicioBEL.findAuxServNroDet(objAuxServiNroDet);
+
+            sord = (sord == null) ? "" : sord;
+            int pageIndex = Convert.ToInt32(page) - 1;
+            int pageSize = rows;
+
+            int totalRecords = listaAuxServicioDet.Count();
+            var totalPages = (int)Math.Ceiling((float)totalRecords / (float)rows);
+
+            var jsonData = new
+            {
+                total = totalPages,
+                page,
+                records = totalRecords,
+                rows = listaAuxServicioDet
+            };
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
+
+
     }
 }
