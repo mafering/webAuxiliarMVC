@@ -10,14 +10,14 @@ namespace model.DAL
 {
     public class AuxServicioDetDAL : ObligatorioServDet<AuxiliarServicioDet>
     {
-        private Conexion conexionObj;
+        private ConexionServicio conexionObj;
         private OdbcCommand comandoObj;
         private OdbcDataReader objDR;
 
         //Constructor
         public AuxServicioDetDAL()
         {
-            conexionObj = Conexion.estadoActual();
+            conexionObj = ConexionServicio.estadoActual();
         }
 
         public List<AuxiliarServicioDet> findAuxServNroDet(AuxiliarServicioDet objAuxServicioDet)
