@@ -643,7 +643,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>REPORTE AUXILIAR DE BIENES &amp; SERVICIOS</Value>
+                  <Value>REPORTE AUXILIAR EXTRA CONTABLE - BIENES &amp; SERVICIOS</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -755,7 +755,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>= Globals!PageNumber &amp; " / " &amp; Globals!TotalPages</Value>
+                  <Value>= "( Pag: " &amp; Globals!PageNumber &amp; " / " &amp; Globals!TotalPages &amp; " )"</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                   </Style>
@@ -767,7 +767,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.0705cm</Top>
+          <Top>0.07049cm</Top>
           <Left>22.78638cm</Left>
           <Height>0.6cm</Height>
           <Width>3.07142cm</Width>
@@ -796,16 +796,51 @@
                 </TextRun>
               </TextRuns>
               <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.0705cm</Top>
+          <Left>16.12892cm</Left>
+          <Height>0.6cm</Height>
+          <Width>6.83098cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>NOTA: Documento provisional para uso exclusivo de la Coordinación Financiera del IMP</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>D</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
                 <TextAlign>Left</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.07051cm</Top>
+          <Top>0.03528cm</Top>
           <Left>0.25392cm</Left>
           <Height>0.6cm</Height>
-          <Width>6.83098cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>12.48252cm</Width>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
