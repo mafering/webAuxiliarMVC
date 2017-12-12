@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.23cm</Width>
+              <Width>1.52104cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.44167cm</Width>
@@ -457,7 +457,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Planilla</Value>
+                              <Value>Registro</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1711,7 +1711,7 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsAuxObraDetalle</DataSetName>
         <Height>3.13229cm</Height>
-        <Width>25.50209cm</Width>
+        <Width>25.79313cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1722,7 +1722,7 @@
     <Height>1.23319in</Height>
     <Style />
   </Body>
-  <Width>10.04019in</Width>
+  <Width>10.15478in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>

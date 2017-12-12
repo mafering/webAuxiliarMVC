@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.23cm</Width>
+              <Width>1.49458cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.865cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.10586cm</Width>
+              <Width>9.84128cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.65333cm</Width>
@@ -371,7 +371,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Planilla</Value>
+                              <Value>Registro</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
