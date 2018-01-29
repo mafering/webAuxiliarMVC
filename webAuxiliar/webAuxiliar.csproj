@@ -455,6 +455,7 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsAuxiliarObra.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Scripts\csvExport.jsp" />
     <Content Include="Scripts\free-jqGrid-4.15.2\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\free-jqGrid-4.15.2\i18n\grid.locale-bg.js" />
     <Content Include="Scripts\free-jqGrid-4.15.2\i18n\grid.locale-bs.js" />
