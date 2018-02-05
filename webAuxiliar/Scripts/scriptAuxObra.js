@@ -269,8 +269,8 @@
             caption: "Exportar Excel ",
             buttonicon: 'fa-file-excel-o', //'ui-icon-transfer-e-w',
             position: 'last',
-            //onClickButton: exportExcel()  // () { exportExcel();}
-            onClickButton: function () { ExportDataToExcel('#jqGridAux') }
+            onClickButton: ajaxExport //exportExcel()  // () { exportExcel();}
+            //onClickButton: function () { ExportDataToExcel('#jqGridAux') }
             //onClickButton: excel($grid.id, 'export.cvs')
         })
         //.jqGrid('navButtonAdd', '#jqGridAuxPag',
@@ -283,55 +283,8 @@
 
 });
 
-function ExportDataToExcel(tableCtrl)
-{
-    exportJQgridDataToExcel(tableCtrl,"sample./")
-}
-
-function exportJQgridDataToExcel(tableCtrl,excelFileName)
-{
-    //var allJQGridData = $(tableCtrl).jqGrid('getGridParam', 'data');
-    var grid = $(tableCtrl);
-    var rowIDList = grid.getDataIDs();
-    var row = grid.getRowData(rowIDList[0]);
-    var colNames = [];
-    var i = 0;
-    for (var cName in row) {
-        colNames[i++] = cName; // Capture Column Names
-    }
-    var html = "";
-    for (var j = 0; j < rowIDList.length; j++) {
-        row = grid.getRowData(rowIDList[j]); // Get Each Row
-        for (var i = 0 ; i < colNames.length ; i++) {
-            html += row[colNames[i]] + ';'; // Create a CSV delimited with ;
-        }
-        html += '\n';
-    }
-    html += '\n';
-
-    var a = document.createElement('a');
-    a.id = 'ExcelDL';
-    a.href = 'data:application/vnd.ms-excel,' + html;
-    a.download = excelFileName ? excelFileName + ".xls" : 'DataList.xls';
-    document.body.appendChild(a);
-    a.click(); // Downloads the excel document
-    document.getElementById('ExcelDL').remove();
-    //var headerData = $(tableCtrl).getRowData(jqgridRowIDs[0]);
-}
-
-function exportExcel()
-{
-    $("#jqGridAux").jqGrid("exportToExcel",
-    {
-        includeLabels: true,
-        includeGroupHeader: true,
-        includeFooter: true,
-        fileName: "jqGridExport.xlsx",
-        mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        maxlength: 40,
-        onBeforeExport: null,
-        replaceStr: null
-    })
+function ajaxExport() {
+    $('form').submit();
 }
 
 function exportPDF()

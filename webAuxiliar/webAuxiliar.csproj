@@ -916,6 +916,9 @@
     <Compile Include="Reportes\rptViewer.aspx.designer.cs">
       <DependentUpon>rptViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ExportResultToExcelAttribute.cs" />
+    <Compile Include="Utils\GlobalVarAux.cs" />
+    <Compile Include="Utils\IEnumerableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

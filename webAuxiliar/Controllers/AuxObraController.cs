@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using model.DEL;
 using model.BEL;
+using Website.Utils;
+
 
 //AuxiliarWeb
 namespace webAuxiliar.Controllers
@@ -27,6 +30,7 @@ namespace webAuxiliar.Controllers
             //return null;
         }
 
+        [HttpGet]
         public ActionResult findAuxObraNro(string txtAuxNro)
         {
 
@@ -41,26 +45,32 @@ namespace webAuxiliar.Controllers
             return View(AuxiliarObra);
         }
 
+        [HttpGet]
         public ActionResult findAuxObraDate(string txtfechaDesde, string txtFechaHasta)
         {
             AuxiliarObra objAuxObraDate = new AuxiliarObra();
-
             List<AuxiliarObra> listaAuxObraDate = objAuxObraBEL.findAuxObraDate(txtfechaDesde, txtFechaHasta);
+
+            Utils.GlobalVarAux.fechaDesde = txtfechaDesde;
+            Utils.GlobalVarAux.fechaHasta = txtFechaHasta;
+
             return View(listaAuxObraDate);
 
             //return null;
         }
 
+
+        [HttpGet]
         public JsonResult getAuxObra(string sidx, string sord, int page, int rows, bool _search,
-                                     string searchField, string searchOper, string searchString, 
+                                     string searchField, string searchOper, string searchString,
                                      string beginDate, string endDate)
         {
 
             List<AuxiliarObra> listaAuxObra;
 
-            if (beginDate == "" || endDate == "" )
+            if (beginDate == "" || endDate == "")
             {
-                
+
                 listaAuxObra = objAuxObraBEL.findAll();
             }
             else
@@ -111,8 +121,7 @@ namespace webAuxiliar.Controllers
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
-
-
+        [HttpGet]
         public JsonResult getAuxObraDet(string sidx, string sord, int page, int rows, bool _search,
                                         string searchField, string searchOper, string searchString, string auxObraID)
         {
@@ -137,6 +146,37 @@ namespace webAuxiliar.Controllers
             };
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
+
+
+        // EXPORT TO EXCEL: INICIO
+        [HttpGet]
+        [ExportResultToExcel(exportedFileName: "Auxiliar.xls", tempDataKey: "AuxData")]
+        public ActionResult ExportToExcel()
+        {
+            using (GridView grid = new GridView())
+            {
+                grid.DataSource = from p in objAuxObraBEL.findAuxObraDate(Utils.GlobalVarAux.fechaDesde, Utils.GlobalVarAux.fechaHasta)
+                                  select new
+                                  {
+                                      Año = p.AnioCto,
+                                      AuxId = p.NumeroAux,
+                                      Contratista = p.Contratista,
+                                      CedRuc = p.CedRuc,
+                                      CodigoCto = p.CodigoCto,
+                                      ObjetoCto = p.ObjetoCto,
+                                      FechaCto = p.FechaCto,
+                                      MontoCto = p.MontoCto,
+                                      PartidaCto = p.Partida,
+                                      PlazoCto = p.Plazo
+                                  };
+                grid.DataBind();
+                TempData["AuxData"] = grid;
+            }
+            return View("findAuxObraDate");
+        }
+        // EXPORT TO EXCEL: FIN
+
+
 
         // ADD: AuxObra
 
