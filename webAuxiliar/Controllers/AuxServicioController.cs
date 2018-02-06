@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using model.DEL;
 using model.BEL;
+using Website.Utils;
 
 namespace webAuxiliar.Controllers
 {
@@ -116,7 +118,35 @@ namespace webAuxiliar.Controllers
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
+        // EXPORT TO EXCEL: INICIO
+        [HttpGet]
+        [ExportResultToExcel(exportedFileName: "AuxiliarServ.xlsx", tempDataKey: "AuxData")]
+        public ActionResult ExportToExcelDate()
+        {
+            using (GridView grid = new GridView())
+            {
+                //grid.DataSource = from p in objAuxObraBEL.findAll()
+                grid.DataSource = from p in objAuxServicioBEL.findAuxServDate(Utils.GlobalVarAux.fechaDesde, Utils.GlobalVarAux.fechaHasta)
+                                  select new
+                                  {
+                                      Periodo = p.AnioCto,
+                                      AuxNro = p.NumeroAux,
+                                      Contratista = p.Contratista,
+                                      CedRuc = p.CedRuc,
+                                      Objeto = p.ObjetoCto,
+                                      Fecha = p.FechaCto,
+                                      Monto = p.MontoCto,
+                                      Partida = p.Partida,
+                                      Plazo = p.Plazo,
+                                      FormaPago = p.FormaPago  
+                                  };
+                grid.DataBind();
+                TempData["AuxData"] = grid;
 
+            }
+            return View("findAuxServDate");
+        }
+        // EXPORT TO EXCEL: FIN
 
     }
 }

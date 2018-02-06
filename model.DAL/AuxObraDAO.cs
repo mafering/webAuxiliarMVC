@@ -271,7 +271,6 @@ namespace model.DAL
                         objAuxObraDate.CodigoCto = objDR[9].ToString();
                         listaAuxObra.Add(objAuxObraDate);
                     }
-
                 }
                 catch (Exception ex)
                 {

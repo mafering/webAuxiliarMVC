@@ -2,9 +2,7 @@
     ViewBag.Title = "Información Auxiliar Obras";
 }
 <br />
-@using (Html.BeginForm("ExportToExcel", "AuxObra", FormMethod.Get))
-{
-}
+
 <!DOCTYPE html>
 <html lang="es-ec">
 <head>
@@ -54,6 +52,10 @@
     </div>
 </body>
 </html>
+
+@using (Html.BeginForm("ExportToExcelDate", "AuxObra", FormMethod.Get))
+{
+}
 
 @section scripts
 {

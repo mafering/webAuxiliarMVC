@@ -8,7 +8,6 @@ using model.DEL;
 using model.BEL;
 using Website.Utils;
 
-
 //AuxiliarWeb
 namespace webAuxiliar.Controllers
 {
@@ -48,7 +47,7 @@ namespace webAuxiliar.Controllers
         [HttpGet]
         public ActionResult findAuxObraDate(string txtfechaDesde, string txtFechaHasta)
         {
-            AuxiliarObra objAuxObraDate = new AuxiliarObra();
+            //AuxiliarObra objAuxObraDate = new AuxiliarObra();
             List<AuxiliarObra> listaAuxObraDate = objAuxObraBEL.findAuxObraDate(txtfechaDesde, txtFechaHasta);
 
             Utils.GlobalVarAux.fechaDesde = txtfechaDesde;
@@ -150,27 +149,29 @@ namespace webAuxiliar.Controllers
 
         // EXPORT TO EXCEL: INICIO
         [HttpGet]
-        [ExportResultToExcel(exportedFileName: "Auxiliar.xls", tempDataKey: "AuxData")]
-        public ActionResult ExportToExcel()
+        [ExportResultToExcel(exportedFileName: "AuxiliarObra.xlsx", tempDataKey: "AuxData")]
+        public ActionResult ExportToExcelDate()
         {
             using (GridView grid = new GridView())
             {
+                //grid.DataSource = from p in objAuxObraBEL.findAll()
                 grid.DataSource = from p in objAuxObraBEL.findAuxObraDate(Utils.GlobalVarAux.fechaDesde, Utils.GlobalVarAux.fechaHasta)
                                   select new
                                   {
-                                      Año = p.AnioCto,
-                                      AuxId = p.NumeroAux,
+                                      Periodo = p.AnioCto,
+                                      AuxNro = p.NumeroAux,
                                       Contratista = p.Contratista,
                                       CedRuc = p.CedRuc,
-                                      CodigoCto = p.CodigoCto,
-                                      ObjetoCto = p.ObjetoCto,
-                                      FechaCto = p.FechaCto,
-                                      MontoCto = p.MontoCto,
-                                      PartidaCto = p.Partida,
-                                      PlazoCto = p.Plazo
+                                      Codigo = p.CodigoCto,
+                                      Objeto = p.ObjetoCto,
+                                      Fecha = p.FechaCto,
+                                      Monto = p.MontoCto,
+                                      Partida = p.Partida,
+                                      Plazo = p.Plazo
                                   };
                 grid.DataBind();
                 TempData["AuxData"] = grid;
+                
             }
             return View("findAuxObraDate");
         }
