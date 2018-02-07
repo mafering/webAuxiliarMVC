@@ -448,6 +448,7 @@
     <Content Include="Content\free-jqGrid-4.15.2\ui.jqgrid.min.css.map" />
     <Content Include="Content\ui.jqgrid.min.css.map" />
     <Content Include="package.json" />
+    <Content Include="Utils\Handlers\ExportGridToExcel.ashx" />
     <None Include="Properties\PublishProfiles\LocalAuxWebIIS.pubxml" />
     <None Include="Properties\PublishProfiles\ServerAuxWebIIS.pubxml" />
     <None Include="Reportes\dsAuxiliarObra.xsd">
@@ -455,7 +456,6 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsAuxiliarObra.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\csvExport.jsp" />
     <Content Include="Scripts\free-jqGrid-4.15.2\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\free-jqGrid-4.15.2\i18n\grid.locale-bg.js" />
     <Content Include="Scripts\free-jqGrid-4.15.2\i18n\grid.locale-bs.js" />
@@ -666,6 +666,7 @@
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\free-jqGrid-4.15.2\plugins\ui.multiselect.js" />
     <Content Include="Scripts\free-jqGrid-4.15.2\ts\free-jqgrid.d.ts" />
+    <Content Include="Scripts\jqGridExportToExcel.js" />
     <Content Include="Scripts\jqGridTrirand\css\ui.jqgrid-bootstrap-ui.css" />
     <Content Include="Scripts\jqGridTrirand\css\ui.jqgrid-bootstrap.css" />
     <Content Include="Scripts\jqGridTrirand\css\ui.jqgrid.css" />
@@ -898,6 +899,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Handlers\ExportGridToExcel.ashx.cs">
+      <DependentUpon>ExportGridToExcel.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\dsAuxiliarObra.Designer.cs">
       <DependentUpon>dsAuxiliarObra.xsd</DependentUpon>
@@ -916,6 +920,7 @@
     <Compile Include="Reportes\rptViewer.aspx.designer.cs">
       <DependentUpon>rptViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CreateExcelFile.cs" />
     <Compile Include="Utils\ExportResultToExcelAttribute.cs" />
     <Compile Include="Utils\GlobalVarAux.cs" />
     <Compile Include="Utils\IEnumerableExtensions.cs" />

@@ -269,7 +269,8 @@
             caption: "Exportar Excel ",
             buttonicon: 'fa-file-excel-o', //'ui-icon-transfer-e-w',
             position: 'last',
-            onClickButton: ajaxExport //exportExcel()  // () { exportExcel();}
+            onClickButton: function () { jqGridExportExcel($grid); }
+            //onClickButton: ajaxExport //exportExcel()  // () { exportExcel();}
             //onClickButton: function () { ExportDataToExcel('#jqGridAux') }
             //onClickButton: excel($grid.id, 'export.cvs')
         })
@@ -282,6 +283,12 @@
         //})
 
 });
+
+
+function jqGridExportExcel(tableCtrl)
+{
+    ExportJQGridDataToExcel(tableCtrl, "AuxObra.xlsx")
+}
 
 function ajaxExport() {
     $('form').submit();
