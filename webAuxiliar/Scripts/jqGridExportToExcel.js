@@ -4,7 +4,8 @@ function ExportJQGridDataToExcel(tableCtrl, excelFilename) {
     //  We'll build up a (very large?) tab-separated string containing the data to be exported, then POST them 
     //  off to a .ashx handler, which creates the Excel file.
 
-    var allJQGridData = $(tableCtrl).jqGrid('getGridParam', 'data');
+    //var allJQGridData = $(tableCtrl).jqGrid('getGridParam', 'data');
+    var allJQGridData = $(tableCtrl).jqGrid('getRowData');
 
     var jqgridRowIDs = $(tableCtrl).getDataIDs();                // Fetch the RowIDs for this grid
     var headerData = $(tableCtrl).getRowData(jqgridRowIDs[0]);   // Fetch the list of "name" values in our colModel

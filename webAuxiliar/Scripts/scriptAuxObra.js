@@ -60,7 +60,7 @@
         sortname: 'by_numeroAux',
         sortorder: 'desc', //'asc', 
         rowNum: 20,
-        rowList: [20, 40, 60, 80, 100],
+        rowList: [20, 40, 60, 80, 100, 500, 1000],
         height: '100%',
         viewrecords: true,
         caption: 'Registros Auxiliar Obras',
@@ -250,9 +250,7 @@
                 })
         },
         //*FIN: Opción+Icono Imprimir*//
-
-
-                
+               
     }).navGrid('#jqGridAuxPag', { edit: false, add: false, del: false, search: true, searchtext: "Buscar Auxiliar", refresh: true, view: false },
         {}, //default setting for edit
         {}, //default setting for add
@@ -269,19 +267,12 @@
             caption: "Exportar Excel ",
             buttonicon: 'fa-file-excel-o', //'ui-icon-transfer-e-w',
             position: 'last',
-            onClickButton: function () { jqGridExportExcel($grid); }
-            //onClickButton: ajaxExport //exportExcel()  // () { exportExcel();}
-            //onClickButton: function () { ExportDataToExcel('#jqGridAux') }
-            //onClickButton: excel($grid.id, 'export.cvs')
+            onClickButton: function ()
+            {
+                jqGridExportExcel($grid);
+            }
+            //onClickButton:  //ajaxExport //exportExcel()
         })
-        //.jqGrid('navButtonAdd', '#jqGridAuxPag',
-        //{
-        //    caption: "Exportar PDF ",
-        //    buttonicon: 'ui-icon-document',
-        //    //position: 'last',
-        //    onClickButton: exportPDF  // () { exportExcel();}
-        //})
-
 });
 
 
@@ -292,24 +283,6 @@ function jqGridExportExcel(tableCtrl)
 
 function ajaxExport() {
     $('form').submit();
-}
-
-function exportPDF()
-{
-    $("#jqGridAux").jqGrid("exportToPdf",
-    {
-        title: null,
-        orientation: 'portrait',
-        pageSize: 'A4',
-        description: null,
-        onBeforeExport: null,
-        download: 'download',
-        includeLabels: true,
-        includeGroupHeader: true,
-        includeFooter: true,
-        fileName: "AuxObra.pdf",
-        mimetype: "application/pdf"
-    })
 }
 
 function getSelectRows()
