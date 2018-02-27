@@ -1,6 +1,8 @@
 ﻿$(function () {
     var $grid = $('#jqGridAux');
-    getColumnIndexByName = function ($grid, columnName) {
+
+    getColumnIndexByName = function ($grid, columnName)
+    {
         var cm = $grid.jqGrid('getGridParam', 'colModel'), i, l = cm.length;
         for (i = 0; i < l; i++) {
             if (cm[i].name === columnName) {
@@ -17,9 +19,9 @@
         postData:
         {
             beginDate: function () { return $('#txtFechaDesde').val() },
-            endDate: function () { return $('#txtFechaHasta').val() }
+            endDate: function () { return $('#txtFechaHasta').val() },
         },
-        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha'],
+        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha', 'Planillado'],
         colModel:
         [
             {
@@ -52,7 +54,19 @@
                     defaultValue: '$ 0.00'
                 }
             },
-            { key: false, name: 'FechaCto', index: 'by_fechaObra', editable: false, width: 30, align: 'center' }
+            { key: false, name: 'FechaCto', index: 'by_fechaObra', editable: false, width: 30, align: 'center' },
+            {
+                key: false, name: 'sumValPlanillado', width: 30, align: 'right', formatter: 'currency',
+                formatoptios:
+                {
+                    thousandsSeparator: ',',
+                    decimalSeparator: '.',
+                    decimalPlaces: 2,
+                    prefix: '$ ',
+                    //suffix: '',
+                    defaultValue: '$ 0.00'
+                }
+            }
         ],
         iconSet: "fontAwesome",
         loadonce: false,

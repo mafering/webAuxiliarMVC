@@ -94,6 +94,9 @@ namespace webAuxiliar.Controllers
                     case "by_objetoCto":
                         listaAuxObra = listaAuxObra.Where(t => t.ObjetoCto.Contains(searchString.ToUpper())).ToList();
                         break;
+                    case "by_anioCto":
+                        listaAuxObra = listaAuxObra.Where(t => t.AnioCto.Contains(searchString)).ToList();
+                        break;
                 }
             }
 

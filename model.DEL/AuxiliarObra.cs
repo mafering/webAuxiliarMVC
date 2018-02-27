@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace model.DEL
 {
-    //(CONTRA4)
+    #region (CONTRA4)
     public class AuxiliarObra
     {
         //Declaramos los atributos de la clase
@@ -21,6 +21,12 @@ namespace model.DEL
         private string fechaCto;
         private string plazo;
         private string codigoCto; //Campo PRORROGA de la tabla CONTRA4
+        //CAMPOS CALCULADOS TOMADOS DE LA TABLA CONTRA2
+        private decimal sumvalEntregado; 
+        private decimal sumvalDevengado; 
+        private decimal sumvalMulta; 
+        private decimal sumvalPlanillado;
+
 
         //Creamos un estado para controlar los errores
         private int estado_error;
@@ -171,6 +177,62 @@ namespace model.DEL
             }
         }
 
+
+        //CAMPOS CALCULADOS TOMADOS DE LA TABLA CONTRA4
+        public decimal sumValEntregado
+        {
+            get
+            {
+                return sumvalEntregado;
+            }
+
+            set
+            {
+                sumvalEntregado = value;
+            }
+        }
+
+        public decimal sumValDevengado
+        {
+            get
+            {
+                return sumvalDevengado;
+            }
+
+            set
+            {
+                sumvalDevengado = value;
+            }
+        }
+
+        public decimal sumValMulta
+        {
+            get
+            {
+                return sumvalMulta;
+            }
+
+            set
+            {
+                sumvalMulta = value;
+            }
+        }
+
+        public decimal sumValPlanillado
+        {
+            get
+            {
+                return sumvalPlanillado;
+            }
+
+            set
+            {
+                sumvalPlanillado = value;
+            }
+        }
+        //FIN CAMPOS CALCULADOS
+
+
         //Contructores
         public AuxiliarObra()
         {
@@ -183,7 +245,8 @@ namespace model.DEL
         }
 
         public AuxiliarObra(string numeroAux, string anioCto, string cedRuc, string contratista, string objetoCto, string partida, 
-                            decimal montoCto, string fechaCto, string plazo, string codigoCto, int estado_error)
+                            decimal montoCto, string fechaCto, string plazo, string codigoCto, int estado_error,
+                            decimal sumvalEntregado, decimal sumvalDevengado, decimal sumvalMulta, decimal sumvalPlanillado)
         {
             this.NumeroAux = numeroAux;
             this.AnioCto = anioCto;
@@ -196,10 +259,15 @@ namespace model.DEL
             this.Plazo = plazo;
             this.CodigoCto = codigoCto;
             this.Estado_error = estado_error;
+            this.sumValEntregado = sumvalEntregado;
+            this.sumValDevengado = sumvalDevengado;
+            this.sumValMulta = sumvalMulta;
+            this.sumValPlanillado = sumvalPlanillado;
         }
     }
+    #endregion
 
-    //(CONTRA2)
+    #region (CONTRA2)
     public class AuxiliarObraDet
     {
         //Declaramos los atributos de la clase
@@ -417,4 +485,5 @@ namespace model.DEL
             this.ValorFinanzas = valorFinanzas;
         }
     }
+    #endregion
 }
