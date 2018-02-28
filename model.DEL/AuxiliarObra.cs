@@ -24,8 +24,10 @@ namespace model.DEL
         //CAMPOS CALCULADOS TOMADOS DE LA TABLA CONTRA2
         private decimal sumvalEntregado; 
         private decimal sumvalDevengado; 
-        private decimal sumvalMulta; 
+        private decimal sumvalMulta;
         private decimal sumvalPlanillado;
+        private decimal sumvalReajuste;
+        private decimal totalInvertido;
 
 
         //Creamos un estado para controlar los errores
@@ -230,6 +232,32 @@ namespace model.DEL
                 sumvalPlanillado = value;
             }
         }
+
+        public decimal sumValReajuste
+        {
+            get
+            {
+                return sumvalReajuste;
+            }
+
+            set
+            {
+                sumvalReajuste = value;
+            }
+        }
+
+        public decimal TotalInvertido
+        {
+            get
+            {
+                return totalInvertido;
+            }
+
+            set
+            {
+                totalInvertido = value;
+            }
+        }
         //FIN CAMPOS CALCULADOS
 
 
@@ -245,8 +273,8 @@ namespace model.DEL
         }
 
         public AuxiliarObra(string numeroAux, string anioCto, string cedRuc, string contratista, string objetoCto, string partida, 
-                            decimal montoCto, string fechaCto, string plazo, string codigoCto, int estado_error,
-                            decimal sumvalEntregado, decimal sumvalDevengado, decimal sumvalMulta, decimal sumvalPlanillado)
+                            decimal montoCto, string fechaCto, string plazo, string codigoCto, int estado_error, decimal sumvalEntregado,
+                            decimal sumvalDevengado, decimal sumvalMulta, decimal sumvalPlanillado, decimal sumvalReajuste, decimal totalInvertido)
         {
             this.NumeroAux = numeroAux;
             this.AnioCto = anioCto;
@@ -263,6 +291,8 @@ namespace model.DEL
             this.sumValDevengado = sumvalDevengado;
             this.sumValMulta = sumvalMulta;
             this.sumValPlanillado = sumvalPlanillado;
+            this.sumValReajuste = sumvalReajuste;
+            this.TotalInvertido = totalInvertido; //(sumValPlanillado + sumValReajuste)
         }
     }
     #endregion

@@ -153,15 +153,13 @@ namespace model.DAL
             //              + @"DETALLE & ' ' & DETALLE2 AS OBJETO, PARTIDA, MONTOCONT AS MONTO_CTO, FECHAC, PLAZO, PRORROGA AS COD_CONTRATO "
             //              + @"FROM CONTRA4 "
             //              + @"ORDER BY FECHAC DESC";
-
             string strSQL = @"SELECT C4.NUMERO, Year([C4.FECHAC]) AS ANIO, C4.INCREMENTO AS CEDRUC, C4.CONTRATI AS CONTRATISTA, "
-                          + @"C4.DETALLE & ' ' & C4.DETALLE2 AS OBJETO, C4.PARTIDA, C4.MONTOCONT AS MONTO_CTO, C4.FECHAC, C4.PLAZO, "
-                          + @"C4.PRORROGA AS COD_CONTRATO, Sum(C2.ENTREGADO) AS ENTREGADO, Sum(C2.RETENCION) AS DEVENGADO, "
-                          + @"Sum(C2.MULTAS) AS MULTAS, Sum(C2.PLANILLADO) AS PLANILLADO, Sum(C2.FINAN) AS FINANZAS "
+                          + @"C4.DETALLE & ' ' & C4.DETALLE2 AS OBJETO, C4.PARTIDA, C4.MONTOCONT AS MONTO_CTO, C4.FECHAC, C4.PLAZO, C4.PRORROGA AS COD_CONTRATO, "
+                          + @"Sum(C2.ENTREGADO) AS ENTREGADO, Sum(C2.RETENCION) AS DEVENGADO, Sum(C2.MULTAS) AS MULTAS, Sum(C2.PLANILLADO) AS PLANILLADO, "
+                          + @"Sum(C2.REAJUSTE) AS REAJUSTE, (Sum(C2.PLANILLADO) + Sum(C2.REAJUSTE)) AS INVERTIDO "
                           + @"FROM CONTRA4 AS C4 INNER JOIN CONTRA2 AS C2 ON C4.NUMERO = C2.NUMERO "
-                          + @"GROUP BY C4.NUMERO, Year([C4.FECHAC]), C4.INCREMENTO, C4.CONTRATI, C4.DETALLE & ' ' & C4.DETALLE2, "
-                          + @"C4.PARTIDA, C4.MONTOCONT, C4.FECHAC, C4.PLAZO, C4.PRORROGA "
-                          + @"HAVING (C4.FECHAC>=#1/1/2001#) ";
+                          + @"GROUP BY C4.NUMERO, Year([C4.FECHAC]), C4.INCREMENTO, C4.CONTRATI, C4.DETALLE & ' ' & C4.DETALLE2, C4.PARTIDA, C4.MONTOCONT, C4.FECHAC, C4.PLAZO, C4.PRORROGA ";
+                          //+ @"HAVING (C4.FECHAC>=#1/1/2001#) ";
                           //+ @"ORDER BY Year([C4.FECHAC])";
             
 
@@ -188,6 +186,8 @@ namespace model.DAL
                     objAuxObra.sumValDevengado = Convert.ToDecimal(objDR[11].ToString());
                     objAuxObra.sumValMulta = Convert.ToDecimal(objDR[12].ToString());
                     objAuxObra.sumValPlanillado = Convert.ToDecimal(objDR[13].ToString());
+                    objAuxObra.sumValReajuste = Convert.ToDecimal(objDR[14].ToString());
+                    objAuxObra.TotalInvertido = Convert.ToDecimal(objDR[15].ToString());
                     listaAuxObra.Add(objAuxObra);
                 }
 

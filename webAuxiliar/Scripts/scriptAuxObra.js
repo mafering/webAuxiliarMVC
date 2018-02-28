@@ -21,7 +21,7 @@
             beginDate: function () { return $('#txtFechaDesde').val() },
             endDate: function () { return $('#txtFechaHasta').val() },
         },
-        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha', 'Planillado'],
+        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha', 'Invertido'],
         colModel:
         [
             {
@@ -36,12 +36,12 @@
                     //delOptions: myDelOptions
                 }
             },
-            { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '30%', align: "center", sortable: true, firstsortorder: 'desc' },
+            { key: true, name: 'NumeroAux', index: 'by_numeroAux', editable: false, width: '30%', align: "center", sortable: true }, // firstsortorder: 'desc'
             { key: false, name: 'AnioCto', index: 'by_anioCto', editable: false, width: '20%', align: "center", sortable: true },
             { key: false, name: 'CedRuc', index: 'by_cedRuc', editable: false, width: '30%', sortable: true },
             { key: false, name: 'Contratista', index: 'by_contratista', editable: false, width: 50, sortable: true, resizable: true },
             { key: false, name: 'ObjetoCto', index: 'by_objetoCto', editable: false, width: 150, height: 'auto', sortable: false },
-            { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 30, align: "center" },
+            { key: false, name: 'Partida', index: 'by_partida', editable: false, width: 30, align: "center", sortable: false },
             {
                 key: false, name: 'MontoCto', index: 'by_montoCto', width: 30, align: 'right', formatter: 'currency',
                 formatoptios:
@@ -56,7 +56,8 @@
             },
             { key: false, name: 'FechaCto', index: 'by_fechaObra', editable: false, width: 30, align: 'center' },
             {
-                key: false, name: 'sumValPlanillado', width: 30, align: 'right', formatter: 'currency',
+                key: false, name: 'sumInvertido', width: 30, align: 'right', formatter: 'currency',
+                classes: 'ui-state-error-text ui-state-error',
                 formatoptios:
                 {
                     thousandsSeparator: ',',
@@ -71,7 +72,7 @@
         iconSet: "fontAwesome",
         loadonce: false,
         //styleUI: 'Bootstrap',
-        sortname: 'by_numeroAux',
+        sortname:  'by_numeroAux', //'by_anioCto',
         sortorder: 'desc', //'asc', 
         rowNum: 20,
         rowList: [20, 40, 60, 80, 100, 500, 1000],
