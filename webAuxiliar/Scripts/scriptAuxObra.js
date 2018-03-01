@@ -21,7 +21,7 @@
             beginDate: function () { return $('#txtFechaDesde').val() },
             endDate: function () { return $('#txtFechaHasta').val() },
         },
-        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha', 'Invertido'],
+        colNames: ['Acciones', 'Numero Aux', 'Año', 'Ced/Ruc', 'Contratista', 'Objeto Contrato', 'Partida', 'Monto', 'Fecha', 'INVERTIDO'],
         colModel:
         [
             {
@@ -56,8 +56,15 @@
             },
             { key: false, name: 'FechaCto', index: 'by_fechaObra', editable: false, width: 30, align: 'center' },
             {
-                key: false, name: 'sumInvertido', width: 30, align: 'right', formatter: 'currency',
-                classes: 'ui-state-error-text ui-state-error',
+                key: false, name: 'TotalInvertido', width: 30, align: 'right', formatter: 'currency',
+                //cellattr: function(rowId, val, rawObject)
+                //{
+                //    if (parseFloat(val) < 100000)
+                //    {
+                //        return " class='ui-state-active'"
+                //    }
+                //},
+                classes: 'ui-state-active', // ui-state-highlight ' ui-state-error' 'ui-corner-all' 
                 formatoptios:
                 {
                     thousandsSeparator: ',',
@@ -72,7 +79,7 @@
         iconSet: "fontAwesome",
         loadonce: false,
         //styleUI: 'Bootstrap',
-        sortname:  'by_numeroAux', //'by_anioCto',
+        sortname: 'by_anioCto', //'by_numeroAux', 
         sortorder: 'desc', //'asc', 
         rowNum: 20,
         rowList: [20, 40, 60, 80, 100, 500, 1000],

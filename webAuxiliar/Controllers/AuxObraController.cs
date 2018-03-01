@@ -105,14 +105,14 @@ namespace webAuxiliar.Controllers
 
             if (sord.ToUpper() == "DESC")
             {
-                listaAuxObra = listaAuxObra.OrderByDescending(x => x.NumeroAux).ToList();
-                //listaAuxObra = listaAuxObra.OrderByDescending(x => x.AnioCto).ToList();
+                //listaAuxObra = listaAuxObra.OrderByDescending(x => x.NumeroAux).ToList();
+                listaAuxObra = listaAuxObra.OrderByDescending(x => x.AnioCto).ToList();
                 listaAuxObra = listaAuxObra.Skip(pageIndex * pageSize).Take(pageSize).ToList();
             }
             else
             {
-                listaAuxObra = listaAuxObra.OrderBy(x => x.NumeroAux).ToList();
-                //listaAuxObra = listaAuxObra.OrderBy(x => x.AnioCto).ToList();
+                //listaAuxObra = listaAuxObra.OrderBy(x => x.NumeroAux).ToList();
+                listaAuxObra = listaAuxObra.OrderBy(x => x.AnioCto).ToList();
                 listaAuxObra = listaAuxObra.Skip(pageIndex * pageSize).Take(pageSize).ToList();
             }
 
