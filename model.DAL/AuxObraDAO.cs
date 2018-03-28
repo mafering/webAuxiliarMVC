@@ -187,9 +187,13 @@ namespace model.DAL
                     objAuxObra.sumValMulta = Convert.ToDecimal(objDR[12].ToString());
                     objAuxObra.sumValPlanillado = Convert.ToDecimal(objDR[13].ToString());
                     objAuxObra.sumValReajuste = Convert.ToDecimal(objDR[14].ToString());
-                    objAuxObra.TotalInvertido = Convert.ToDecimal(objDR[15].ToString());
+                    objAuxObra.TotalInvertido = Convert.ToDecimal(objDR[15].ToString());                    
                     listaAuxObra.Add(objAuxObra);
                 }
+                //if (listaAuxObra.Count == 1165)
+                //{
+                //    string msg = "error";
+                //}
 
             }
             catch (Exception ex)
