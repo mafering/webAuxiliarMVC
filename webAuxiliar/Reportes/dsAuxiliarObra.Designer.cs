@@ -339,7 +339,7 @@ namespace webAuxiliar.Reportes {
             
             private global::System.Data.DataColumn columnPlazo;
             
-            private global::System.Data.DataColumn columnFormaPago;
+            private global::System.Data.DataColumn columnCodigoCto;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -448,9 +448,9 @@ namespace webAuxiliar.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FormaPagoColumn {
+            public global::System.Data.DataColumn CodigoCtoColumn {
                 get {
-                    return this.columnFormaPago;
+                    return this.columnCodigoCto;
                 }
             }
             
@@ -491,7 +491,7 @@ namespace webAuxiliar.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string NumeroAux, string AnioCto, string CedRuc, string Contratista, string ObjetoCto, string Partida, string MontoCto, string FechaCto, string Plazo, string FormaPago) {
+            public DataTable1Row AddDataTable1Row(string NumeroAux, string AnioCto, string CedRuc, string Contratista, string ObjetoCto, string Partida, string MontoCto, string FechaCto, string Plazo, string CodigoCto) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NumeroAux,
@@ -503,7 +503,7 @@ namespace webAuxiliar.Reportes {
                         MontoCto,
                         FechaCto,
                         Plazo,
-                        FormaPago};
+                        CodigoCto};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -535,7 +535,7 @@ namespace webAuxiliar.Reportes {
                 this.columnMontoCto = base.Columns["MontoCto"];
                 this.columnFechaCto = base.Columns["FechaCto"];
                 this.columnPlazo = base.Columns["Plazo"];
-                this.columnFormaPago = base.Columns["FormaPago"];
+                this.columnCodigoCto = base.Columns["CodigoCto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -559,8 +559,8 @@ namespace webAuxiliar.Reportes {
                 base.Columns.Add(this.columnFechaCto);
                 this.columnPlazo = new global::System.Data.DataColumn("Plazo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPlazo);
-                this.columnFormaPago = new global::System.Data.DataColumn("FormaPago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFormaPago);
+                this.columnCodigoCto = new global::System.Data.DataColumn("CodigoCto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigoCto);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1265,17 +1265,17 @@ namespace webAuxiliar.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FormaPago {
+            public string CodigoCto {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.FormaPagoColumn]));
+                        return ((string)(this[this.tableDataTable1.CodigoCtoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FormaPago\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodigoCto\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.FormaPagoColumn] = value;
+                    this[this.tableDataTable1.CodigoCtoColumn] = value;
                 }
             }
             
@@ -1389,14 +1389,14 @@ namespace webAuxiliar.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFormaPagoNull() {
-                return this.IsNull(this.tableDataTable1.FormaPagoColumn);
+            public bool IsCodigoCtoNull() {
+                return this.IsNull(this.tableDataTable1.CodigoCtoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFormaPagoNull() {
-                this[this.tableDataTable1.FormaPagoColumn] = global::System.Convert.DBNull;
+            public void SetCodigoCtoNull() {
+                this[this.tableDataTable1.CodigoCtoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

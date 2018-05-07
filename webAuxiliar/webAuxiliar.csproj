@@ -395,6 +395,7 @@
     <Content Include="images\logo_IMP_2014.jpg" />
     <Content Include="images\logo_IMP_2017.png" />
     <Content Include="images\logo_IMP_2017_rpt1.png" />
+    <Content Include="images\Logo_IMP_40.png" />
     <Content Include="Reportes\dsAuxiliarObra.xsc">
       <DependentUpon>dsAuxiliarObra.xsd</DependentUpon>
     </Content>
@@ -962,6 +963,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\RDLC\rptAuxObra.rdlc" />
+    <EmbeddedResource Include="Reportes\RDLC\rptAuxObra3.rdlc" />
     <EmbeddedResource Include="Reportes\RDLC\rptAuxObraDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RDLC\rptAuxServicio.rdlc" />
     <EmbeddedResource Include="Reportes\RDLC\rptAuxServicioDetalle.rdlc" />

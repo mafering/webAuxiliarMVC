@@ -215,7 +215,7 @@ namespace model.DAL
 
             string strSQL = @"SELECT NUMERO, year([FECHAC]) as ANIO, INCREMENTO AS CED_RUC, CONTRATI as CONTRATISTA, DETALLE & ' ' & DETALLE2 AS OBJETO, " +
                             @"PARTIDA, MONTOCONT AS MONTO_CTO, FECHAC, PLAZO, PRORROGA AS COD_CONTRATO " +
-                            @"FROM CONTRA4 WHERE NUMERO = '" + objAuxObra.NumeroAux + "'";
+                            @"FROM CONTRA4 WHERE NUMERO = '" + objAuxObra.NumeroAux.ToUpper() + "'";
             try
             {
                 comandoObj = new OdbcCommand(strSQL, conexionObj.getCon());

@@ -14,14 +14,12 @@
     <div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <rsweb:ReportViewer
-            AsyncRendering="false" 
+            AsyncRendering="False" 
             ID="rvDataViewer" 
             runat="server" 
-            SizeToReportContent="true"
+            SizeToReportContent="True"
             Width="90%" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowPrintButton="False">
-            <%--<LocalReport 
-                ReportPath="Reportes\RDLC\rptAuxObra.rdlc">
-            </LocalReport>--%>
+            
         </rsweb:ReportViewer>
         &nbsp;&nbsp;&nbsp;
     </div>

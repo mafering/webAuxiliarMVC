@@ -41,13 +41,16 @@ namespace webAuxiliar.Reportes
                     ReportDataSource rdc1 = new ReportDataSource("dsAuxObraCabecera", listaAuxObra);
                     rvDataViewer.LocalReport.DataSources.Add(rdc1);
 
+                    //**Detalle usando 2 DataSet en un solo RDLC (rptAuxObra3.rdlc)
                     //AuxiliarObraDet objAuxObraNroDet = new AuxiliarObraDet();
                     //objAuxObraNroDet.NumeroAux = searchText;
                     //List<AuxiliarObraDet> listaAuxObraDet;
                     //listaAuxObraDet = objAuxObraBELdet.findAuxObraNroDet(objAuxObraNroDet);
                     //ReportDataSource rdc2 = new ReportDataSource("dsAuxObraDetalle", listaAuxObraDet);
                     //rvDataViewer.LocalReport.DataSources.Add(rdc2);
+                    //**Fin Detalle
 
+                    //**Detalle con subreporte "sRptAuxObraDetall"
                     rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxObraDetalle);
                 }
                 else if (Request.QueryString["rptAuxServicio"] != null)

@@ -1805,7 +1805,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsAuxiliarObra</rd:DataSetName>
-        <rd:SchemaPath>D:\Sistemas\AUXILIARES\NewReport\rptAuxiliarWeb\webAuxiliar\Reportes\dsAuxiliarObra.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Sistemas\AUXILIARES\NewReport\rptAuxiliarMVC\webAuxiliar\Reportes\dsAuxiliarObra.xsd</rd:SchemaPath>
         <rd:TableName>DataTable2</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
