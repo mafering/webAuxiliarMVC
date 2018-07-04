@@ -1,8 +1,8 @@
 ﻿$(function () {
-    //var self = this;
-    //var fd = $('#txtFechaDesde').val();
     var $grid = $('#jqGridAux');
-    getColumnIndexByName = function ($grid, columnName) {
+
+    getColumnIndexByName = function ($grid, columnName)
+    {
         var cm = $grid.jqGrid('getGridParam', 'colModel'), i, l = cm.length;
         for (i = 0; i < l; i++) {
             if (cm[i].name === columnName) {
@@ -57,11 +57,12 @@
             { key: false, name: 'FechaCto', index: 'by_fechaServ', editable: false, width: 30, align: 'center' }
         ],
         iconSet: "fontAwesome",
-        //loadonce: false,
+        loadonce: false,
+        //styleUI: 'Bootstrap',
         sortname: 'by_numeroAux',
-        sortorder: 'desc',
+        sortorder: 'desc',  //'asc', 
         rowNum: 20,
-        rowList: [20, 40, 60, 80, 100],
+        rowList: [20, 40, 60, 80, 100, 500, 1000],
         height: '100%',
         viewrecords: true,
         caption: 'Registros Auxiliar Bienes y Servicios',
@@ -72,11 +73,13 @@
             total: "total",
             records: "records",
             repeatitems: false,
-            id: "0"
+            id: "0",
+            subgrid: {repeatitems: false}
         },
         autowidth: true,
         rownumbers: true,
         multiselect: false,
+        toppager: false,
         pager: '#jqGridAuxPag',
 
         //*INICIO: subGrid*//
@@ -89,7 +92,8 @@
             selectOnExpand: true
         },
 
-        subGridRowExpanded: function (subgrid_id, row_id) {
+        subGridRowExpanded: function(subgrid_id, row_id)
+        {
             var subgrid_table_id, pager_id;
             subgrid_table_id = subgrid_id + '_t';
             pager_id = 'p_' + subgrid_table_id;
@@ -191,10 +195,12 @@
                 loadonce: true,
                 rowNum: 10,
                 rowList: [10, 20, 50, 100],
+                //sortname: 'by_numeroPla',
+                //sortorder: 'asc',
                 autowidth: true,
                 pager: "#" + pager_id,
                 viewrecords: true,
-                caption: 'Detalle de Planilla(s) de Obra',
+                caption: 'Detalle de Planilla(s) de Bienes/Servicio',
                 emptyrecords: 'No hay registros de planillas disponibles para mostrar',
                 jsonReader: {
                     root: "rows",
@@ -246,6 +252,7 @@
                 })
         }
         //*FIN: Opción+Icono Imprimir*//
+
     }).navGrid('#jqGridAuxPag', { edit: false, add: false, del: false, search: true, searchtext: "Buscar Auxiliar", refresh: true, view: false },
         {}, //default setting for edit
         {}, //default setting for add
@@ -262,7 +269,10 @@
             caption: "Exportar Excel ",
             buttonicon: 'fa-file-excel-o', //'ui-icon-transfer-e-w',
             position: 'last',
-            onClickButton: exportExcel  // () { exportExcel();}
+            onClickButton: function ()
+            {
+                jqGridExportExcel($grid);
+            }
         })
         //.jqGrid('navButtonAdd', '#jqGridAuxPag',
         //{
@@ -274,37 +284,14 @@
 
 });
 
-function exportExcel()
+function jqGridExportExcel(tableCtrl)
 {
-    $("#jqGridAux").jqGrid("exportToExcel",
-    {
-        includeLabels: true,
-        includeGroupHeader: true,
-        includeFooter: true,
-        fileName: "jqGridExport.xlsx",
-        mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        maxlength: 40,
-        onBeforeExport: null,
-        replaceStr: null
-    })
+    ExportJQGridDataToExcel(tableCtrl, "AuxServicio.xlsx")
 }
 
-function exportPDF()
+function ajaxExport()
 {
-    $("#jqGridAux").jqGrid("exportToPdf",
-    {
-        title: null,
-        orientation: 'portrait',
-        pageSize: 'A4',
-        description: null,
-        onBeforeExport: null,
-        download: 'download',
-        includeLabels: true,
-        includeGroupHeader: true,
-        includeFooter: true,
-        fileName: "AuxObra.pdf",
-        mimetype: "application/pdf"
-    })
+    $('form').submit();
 }
 
 function getSelectRows()

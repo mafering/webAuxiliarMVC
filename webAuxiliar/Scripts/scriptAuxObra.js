@@ -218,7 +218,7 @@
                 //sortname: 'by_numeroPla',
                 //sortorder: 'asc',
                 autowidth: true,
-                pager:"#" + pager_id,
+                pager: "#" + pager_id,
                 viewrecords: true,
                 caption: 'Detalle de Planilla(s) de Obra',
                 emptyrecords: 'No hay registros de planillas disponibles para mostrar',
@@ -250,7 +250,8 @@
                         mouseout: function () {
                             $(this).removeClass('ui-state-hover');
                         },
-                        click: function (e) {
+                        click: function (e)
+                        {
                             //alert("'Custom' button is clicked in the rowis=" +
                             //    $(e.target).closest("tr.jqgrow").attr("id") + " !");
 
@@ -261,8 +262,6 @@
                             var iframe = '<iframe id="myReportFrame" width="100%" height="800px" scrolling="no" frameborder="0" src="' + src + '" allowfullscreen></iframe>';
                             $("#divReport").html(iframe);
                             //FIN script reporte //
-
-
                         }
                     }
                   ).css({ "margin-right": "5px", float: "left", cursor: "pointer" })
