@@ -28,7 +28,7 @@ namespace webAuxiliar.Reportes {
         
         private DataTable2DataTable tableDataTable2;
         
-        private global::System.Data.DataRelation relationdt1AuxObra_dt2PlaDetalle;
+        private global::System.Data.DataRelation relationdt1AuxObra_dt2PlaDetalleObra;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -220,7 +220,7 @@ namespace webAuxiliar.Reportes {
                     this.tableDataTable2.InitVars();
                 }
             }
-            this.relationdt1AuxObra_dt2PlaDetalle = this.Relations["dt1AuxObra_dt2PlaDetalle"];
+            this.relationdt1AuxObra_dt2PlaDetalleObra = this.Relations["dt1AuxObra_dt2PlaDetalleObra"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -235,10 +235,10 @@ namespace webAuxiliar.Reportes {
             base.Tables.Add(this.tableDataTable1);
             this.tableDataTable2 = new DataTable2DataTable();
             base.Tables.Add(this.tableDataTable2);
-            this.relationdt1AuxObra_dt2PlaDetalle = new global::System.Data.DataRelation("dt1AuxObra_dt2PlaDetalle", new global::System.Data.DataColumn[] {
+            this.relationdt1AuxObra_dt2PlaDetalleObra = new global::System.Data.DataRelation("dt1AuxObra_dt2PlaDetalleObra", new global::System.Data.DataColumn[] {
                         this.tableDataTable1.NumeroAuxColumn}, new global::System.Data.DataColumn[] {
                         this.tableDataTable2.NumeroAuxColumn}, false);
-            this.Relations.Add(this.relationdt1AuxObra_dt2PlaDetalle);
+            this.Relations.Add(this.relationdt1AuxObra_dt2PlaDetalleObra);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -894,7 +894,7 @@ namespace webAuxiliar.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable2Row AddDataTable2Row(DataTable1Row parentDataTable1RowBydt1AuxObra_dt2PlaDetalle, string NumeroPla, string DocControl, string DocReferencia, string Concepto, string FechaPago, string ValorMulta, string RetencionPla, string ValorEntregado, string ValorPlanilla, string ValorReajuste, string ValorInec, string ValorFinanzas) {
+            public DataTable2Row AddDataTable2Row(DataTable1Row parentDataTable1RowBydt1AuxObra_dt2PlaDetalleObra, string NumeroPla, string DocControl, string DocReferencia, string Concepto, string FechaPago, string ValorMulta, string RetencionPla, string ValorEntregado, string ValorPlanilla, string ValorReajuste, string ValorInec, string ValorFinanzas) {
                 DataTable2Row rowDataTable2Row = ((DataTable2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -910,8 +910,8 @@ namespace webAuxiliar.Reportes {
                         ValorReajuste,
                         ValorInec,
                         ValorFinanzas};
-                if ((parentDataTable1RowBydt1AuxObra_dt2PlaDetalle != null)) {
-                    columnValuesArray[0] = parentDataTable1RowBydt1AuxObra_dt2PlaDetalle[0];
+                if ((parentDataTable1RowBydt1AuxObra_dt2PlaDetalleObra != null)) {
+                    columnValuesArray[0] = parentDataTable1RowBydt1AuxObra_dt2PlaDetalleObra[0];
                 }
                 rowDataTable2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable2Row);
@@ -1402,11 +1402,11 @@ namespace webAuxiliar.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable2Row[] GetDataTable2Rows() {
-                if ((this.Table.ChildRelations["dt1AuxObra_dt2PlaDetalle"] == null)) {
+                if ((this.Table.ChildRelations["dt1AuxObra_dt2PlaDetalleObra"] == null)) {
                     return new DataTable2Row[0];
                 }
                 else {
-                    return ((DataTable2Row[])(base.GetChildRows(this.Table.ChildRelations["dt1AuxObra_dt2PlaDetalle"])));
+                    return ((DataTable2Row[])(base.GetChildRows(this.Table.ChildRelations["dt1AuxObra_dt2PlaDetalleObra"])));
                 }
             }
         }
@@ -1637,10 +1637,10 @@ namespace webAuxiliar.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1Row DataTable1Row {
                 get {
-                    return ((DataTable1Row)(this.GetParentRow(this.Table.ParentRelations["dt1AuxObra_dt2PlaDetalle"])));
+                    return ((DataTable1Row)(this.GetParentRow(this.Table.ParentRelations["dt1AuxObra_dt2PlaDetalleObra"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["dt1AuxObra_dt2PlaDetalle"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["dt1AuxObra_dt2PlaDetalleObra"]);
                 }
             }
             

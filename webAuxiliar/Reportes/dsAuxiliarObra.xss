@@ -7,18 +7,18 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="True" ViewPortX="-18" ViewPortY="-78" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:DataTable1" ZOrder="3" X="-1" Y="-68" Height="220" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
-    <Shape ID="DesignTable:DataTable2" ZOrder="2" X="316" Y="-67" Height="276" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="272" />
+    <Shape ID="DesignTable:DataTable2" ZOrder="2" X="316" Y="-67" Height="276" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="272" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:dt1AuxObra_dt2PlaDetalle" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:dt1AuxObra_dt2PlaDetalleObra" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>149</X>
-          <Y>26</Y>
+          <Y>42</Y>
         </Point>
         <Point>
           <X>316</X>
-          <Y>26</Y>
+          <Y>42</Y>
         </Point>
       </RoutePoints>
     </Connector>
