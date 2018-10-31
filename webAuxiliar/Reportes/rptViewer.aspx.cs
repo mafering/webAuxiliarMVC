@@ -50,7 +50,7 @@ namespace webAuxiliar.Reportes
                     //rvDataViewer.LocalReport.DataSources.Add(rdc2);
                     //**Fin Detalle
 
-                    //**Detalle con subreporte "sRptAuxObraDetall"
+                    //**Detalle con subreporte "sRptAuxObraDetalle"
                     rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxObraDetalle);
                 }
                 else if (Request.QueryString["rptAuxServicio"] != null)

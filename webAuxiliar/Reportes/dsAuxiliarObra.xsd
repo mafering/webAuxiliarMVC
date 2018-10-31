@@ -6,7 +6,52 @@
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="dbfAuxiliarObraODBC" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbfAuxiliarObraODBC (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.dbfAuxiliarObraODBC.ConnectionString" Provider="System.Data.Odbc" />
         </Connections>
-        <Tables />
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbfAuxiliarObraODBC (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CONTRA2.NUMERO, CONTRA4.FECHAC AS ANIO, CONTRA4.INCREMENTO AS CED_RUC, CONTRA4.CONTRATI, 
+                         CONTRA4.DETALLE + ' ' + CONTRA4.DETALLE2 AS OBJETO, CONTRA4.MONTOCONT AS MONTO_CTO, CONTRA4.FECHAC AS FECHA_CTO, CONTRA4.PLAZO, 
+                         CONTRA4.PRORROGA AS CODIGO_CTO, CONTRA4.PARTIDA, CONTRA2.NPLAN AS NUMERO_PLA, CONTRA2.CONTROL AS DOC_CONTROL, 
+                         CONTRA2.CHEQUE AS DOC_REFERENCIA, CONTRA2.CONCEP AS CONCEPTO, CONTRA2.FECHAP AS FECHA_PAGO, CONTRA2.MULTAS AS VAL_MULTA, 
+                         CONTRA2.RETENCION AS VAL_RETENCION, CONTRA2.ENTREGADO AS VAL_ENTREGADO, CONTRA2.PLANILLADO AS VAL_PLANILLADO, 
+                         CONTRA2.REAJUSTE AS VAL_REAJUSTE, CONTRA2.INEC AS VAL_INEC, CONTRA2.FINAN AS VAL_FINANANZAS
+FROM            CONTRA4, CONTRA2
+WHERE        (CONTRA2.NUMERO = contra4.numero)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NUMERO" DataSetColumn="NUMERO" />
+              <Mapping SourceColumn="ANIO" DataSetColumn="ANIO" />
+              <Mapping SourceColumn="CED_RUC" DataSetColumn="CED_RUC" />
+              <Mapping SourceColumn="CONTRATI" DataSetColumn="CONTRATI" />
+              <Mapping SourceColumn="OBJETO" DataSetColumn="OBJETO" />
+              <Mapping SourceColumn="MONTO_CTO" DataSetColumn="MONTO_CTO" />
+              <Mapping SourceColumn="FECHA_CTO" DataSetColumn="FECHA_CTO" />
+              <Mapping SourceColumn="PLAZO" DataSetColumn="PLAZO" />
+              <Mapping SourceColumn="CODIGO_CTO" DataSetColumn="CODIGO_CTO" />
+              <Mapping SourceColumn="PARTIDA" DataSetColumn="PARTIDA" />
+              <Mapping SourceColumn="NUMERO_PLA" DataSetColumn="NUMERO_PLA" />
+              <Mapping SourceColumn="DOC_CONTROL" DataSetColumn="DOC_CONTROL" />
+              <Mapping SourceColumn="DOC_REFERENCIA" DataSetColumn="DOC_REFERENCIA" />
+              <Mapping SourceColumn="CONCEPTO" DataSetColumn="CONCEPTO" />
+              <Mapping SourceColumn="FECHA_PAGO" DataSetColumn="FECHA_PAGO" />
+              <Mapping SourceColumn="VAL_MULTA" DataSetColumn="VAL_MULTA" />
+              <Mapping SourceColumn="VAL_RETENCION" DataSetColumn="VAL_RETENCION" />
+              <Mapping SourceColumn="VAL_ENTREGADO" DataSetColumn="VAL_ENTREGADO" />
+              <Mapping SourceColumn="VAL_PLANILLADO" DataSetColumn="VAL_PLANILLADO" />
+              <Mapping SourceColumn="VAL_REAJUSTE" DataSetColumn="VAL_REAJUSTE" />
+              <Mapping SourceColumn="VAL_INEC" DataSetColumn="VAL_INEC" />
+              <Mapping SourceColumn="VAL_FINANANZAS" DataSetColumn="VAL_FINANANZAS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -14,7 +59,7 @@
   <xs:element name="dsAuxiliarObra" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsAuxiliarObra" msprop:Generator_UserDSName="dsAuxiliarObra">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NumeroAux" msprop:Generator_ColumnVarNameInTable="columnNumeroAux" msprop:Generator_ColumnPropNameInRow="NumeroAux" msprop:Generator_ColumnPropNameInTable="NumeroAuxColumn" msprop:Generator_UserColumnName="NumeroAux" type="xs:string" minOccurs="0" />
@@ -30,7 +75,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NumeroAux" msprop:Generator_ColumnVarNameInTable="columnNumeroAux" msprop:Generator_ColumnPropNameInRow="NumeroAux" msprop:Generator_ColumnPropNameInTable="NumeroAuxColumn" msprop:Generator_UserColumnName="NumeroAux" type="xs:string" minOccurs="0" />
@@ -49,12 +94,106 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_TablePropName="DataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowClassName="DataTable3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NUMERO" msprop:Generator_ColumnVarNameInTable="columnNUMERO" msprop:Generator_ColumnPropNameInRow="NUMERO" msprop:Generator_ColumnPropNameInTable="NUMEROColumn" msprop:Generator_UserColumnName="NUMERO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ANIO" msprop:Generator_ColumnVarNameInTable="columnANIO" msprop:Generator_ColumnPropNameInRow="ANIO" msprop:Generator_ColumnPropNameInTable="ANIOColumn" msprop:Generator_UserColumnName="ANIO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CED_RUC" msprop:Generator_ColumnVarNameInTable="columnCED_RUC" msprop:Generator_ColumnPropNameInRow="CED_RUC" msprop:Generator_ColumnPropNameInTable="CED_RUCColumn" msprop:Generator_UserColumnName="CED_RUC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTRATI" msprop:Generator_ColumnVarNameInTable="columnCONTRATI" msprop:Generator_ColumnPropNameInRow="CONTRATI" msprop:Generator_ColumnPropNameInTable="CONTRATIColumn" msprop:Generator_UserColumnName="CONTRATI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OBJETO" msprop:Generator_ColumnVarNameInTable="columnOBJETO" msprop:Generator_ColumnPropNameInRow="OBJETO" msprop:Generator_ColumnPropNameInTable="OBJETOColumn" msprop:Generator_UserColumnName="OBJETO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="508" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MONTO_CTO" msprop:Generator_ColumnVarNameInTable="columnMONTO_CTO" msprop:Generator_ColumnPropNameInRow="MONTO_CTO" msprop:Generator_ColumnPropNameInTable="MONTO_CTOColumn" msprop:Generator_UserColumnName="MONTO_CTO" type="xs:double" minOccurs="0" />
+              <xs:element name="FECHA_CTO" msprop:Generator_ColumnVarNameInTable="columnFECHA_CTO" msprop:Generator_ColumnPropNameInRow="FECHA_CTO" msprop:Generator_ColumnPropNameInTable="FECHA_CTOColumn" msprop:Generator_UserColumnName="FECHA_CTO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PLAZO" msprop:Generator_ColumnVarNameInTable="columnPLAZO" msprop:Generator_ColumnPropNameInRow="PLAZO" msprop:Generator_ColumnPropNameInTable="PLAZOColumn" msprop:Generator_UserColumnName="PLAZO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_CTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CTO" msprop:Generator_ColumnPropNameInRow="CODIGO_CTO" msprop:Generator_ColumnPropNameInTable="CODIGO_CTOColumn" msprop:Generator_UserColumnName="CODIGO_CTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARTIDA" msprop:Generator_ColumnVarNameInTable="columnPARTIDA" msprop:Generator_ColumnPropNameInRow="PARTIDA" msprop:Generator_ColumnPropNameInTable="PARTIDAColumn" msprop:Generator_UserColumnName="PARTIDA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NUMERO_PLA" msprop:Generator_ColumnVarNameInTable="columnNUMERO_PLA" msprop:Generator_ColumnPropNameInRow="NUMERO_PLA" msprop:Generator_ColumnPropNameInTable="NUMERO_PLAColumn" msprop:Generator_UserColumnName="NUMERO_PLA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DOC_CONTROL" msprop:Generator_ColumnVarNameInTable="columnDOC_CONTROL" msprop:Generator_ColumnPropNameInRow="DOC_CONTROL" msprop:Generator_ColumnPropNameInTable="DOC_CONTROLColumn" msprop:Generator_UserColumnName="DOC_CONTROL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DOC_REFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDOC_REFERENCIA" msprop:Generator_ColumnPropNameInRow="DOC_REFERENCIA" msprop:Generator_ColumnPropNameInTable="DOC_REFERENCIAColumn" msprop:Generator_UserColumnName="DOC_REFERENCIA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONCEPTO" msprop:Generator_ColumnVarNameInTable="columnCONCEPTO" msprop:Generator_ColumnPropNameInRow="CONCEPTO" msprop:Generator_ColumnPropNameInTable="CONCEPTOColumn" msprop:Generator_UserColumnName="CONCEPTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FECHA_PAGO" msprop:Generator_ColumnVarNameInTable="columnFECHA_PAGO" msprop:Generator_ColumnPropNameInRow="FECHA_PAGO" msprop:Generator_ColumnPropNameInTable="FECHA_PAGOColumn" msprop:Generator_UserColumnName="FECHA_PAGO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="VAL_MULTA" msprop:Generator_ColumnVarNameInTable="columnVAL_MULTA" msprop:Generator_ColumnPropNameInRow="VAL_MULTA" msprop:Generator_ColumnPropNameInTable="VAL_MULTAColumn" msprop:Generator_UserColumnName="VAL_MULTA" type="xs:double" minOccurs="0" />
+              <xs:element name="VAL_RETENCION" msprop:Generator_ColumnVarNameInTable="columnVAL_RETENCION" msprop:Generator_ColumnPropNameInRow="VAL_RETENCION" msprop:Generator_ColumnPropNameInTable="VAL_RETENCIONColumn" msprop:Generator_UserColumnName="VAL_RETENCION" type="xs:double" minOccurs="0" />
+              <xs:element name="VAL_ENTREGADO" msprop:Generator_ColumnVarNameInTable="columnVAL_ENTREGADO" msprop:Generator_ColumnPropNameInRow="VAL_ENTREGADO" msprop:Generator_ColumnPropNameInTable="VAL_ENTREGADOColumn" msprop:Generator_UserColumnName="VAL_ENTREGADO" type="xs:double" minOccurs="0" />
+              <xs:element name="VAL_PLANILLADO" msprop:Generator_ColumnVarNameInTable="columnVAL_PLANILLADO" msprop:Generator_ColumnPropNameInRow="VAL_PLANILLADO" msprop:Generator_ColumnPropNameInTable="VAL_PLANILLADOColumn" msprop:Generator_UserColumnName="VAL_PLANILLADO" type="xs:double" minOccurs="0" />
+              <xs:element name="VAL_REAJUSTE" msprop:Generator_ColumnVarNameInTable="columnVAL_REAJUSTE" msprop:Generator_ColumnPropNameInRow="VAL_REAJUSTE" msprop:Generator_ColumnPropNameInTable="VAL_REAJUSTEColumn" msprop:Generator_UserColumnName="VAL_REAJUSTE" type="xs:double" minOccurs="0" />
+              <xs:element name="VAL_INEC" msprop:Generator_ColumnVarNameInTable="columnVAL_INEC" msprop:Generator_ColumnPropNameInRow="VAL_INEC" msprop:Generator_ColumnPropNameInTable="VAL_INECColumn" msprop:Generator_UserColumnName="VAL_INEC" type="xs:double" minOccurs="0" />
+              <xs:element name="VAL_FINANANZAS" msprop:Generator_ColumnVarNameInTable="columnVAL_FINANANZAS" msprop:Generator_ColumnPropNameInRow="VAL_FINANANZAS" msprop:Generator_ColumnPropNameInTable="VAL_FINANANZASColumn" msprop:Generator_UserColumnName="VAL_FINANANZAS" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="dt1AuxObra_dt2PlaDetalleObra" msdata:parent="DataTable1" msdata:child="DataTable2" msdata:parentkey="NumeroAux" msdata:childkey="NumeroAux" msprop:Generator_UserChildTable="DataTable2" msprop:Generator_ChildPropName="GetDataTable2Rows" msprop:Generator_UserRelationName="dt1AuxObra_dt2PlaDetalleObra" msprop:Generator_ParentPropName="DataTable1Row" msprop:Generator_RelationVarName="relationdt1AuxObra_dt2PlaDetalleObra" msprop:Generator_UserParentTable="DataTable1" />
+      <msdata:Relationship name="dt1AuxObra_dt2PlaDetalleObra" msdata:parent="DataTable1" msdata:child="DataTable2" msdata:parentkey="NumeroAux" msdata:childkey="NumeroAux" msprop:Generator_UserChildTable="DataTable2" msprop:Generator_ChildPropName="GetDataTable2Rows" msprop:Generator_UserRelationName="dt1AuxObra_dt2PlaDetalleObra" msprop:Generator_RelationVarName="relationdt1AuxObra_dt2PlaDetalleObra" msprop:Generator_UserParentTable="DataTable1" msprop:Generator_ParentPropName="DataTable1Row" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
