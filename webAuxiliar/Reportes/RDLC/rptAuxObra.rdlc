@@ -598,7 +598,7 @@
         </Parameters>
         <Top>3.66005cm</Top>
         <Left>0.25392cm</Left>
-        <Height>2.0324cm</Height>
+        <Height>1.93539cm</Height>
         <Width>25.26005cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -608,7 +608,7 @@
         </Style>
       </Subreport>
     </ReportItems>
-    <Height>2.24112in</Height>
+    <Height>2.27237in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -710,7 +710,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Número.: </Value>
+                  <Value>Número: </Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <TextDecoration>None</TextDecoration>
@@ -769,7 +769,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.07048cm</Top>
+          <Top>0.07047cm</Top>
           <Left>22.78638cm</Left>
           <Height>0.6cm</Height>
           <Width>3.07142cm</Width>
@@ -803,7 +803,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.07049cm</Top>
+          <Top>0.07048cm</Top>
           <Left>16.12892cm</Left>
           <Height>0.6cm</Height>
           <Width>6.83098cm</Width>
@@ -838,7 +838,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.03525cm</Top>
+          <Top>0.03524cm</Top>
           <Left>0.25738cm</Left>
           <Height>0.6cm</Height>
           <Width>12.48252cm</Width>

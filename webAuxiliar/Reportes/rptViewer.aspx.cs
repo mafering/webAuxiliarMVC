@@ -69,7 +69,7 @@ namespace webAuxiliar.Reportes
 
                     rvDataViewer.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(sRptAuxServicioDetalle);
                 }
-
+                //rvDataViewer.ZoomPercent = 75;
                 rvDataViewer.LocalReport.Refresh();
                 rvDataViewer.DataBind();
             }

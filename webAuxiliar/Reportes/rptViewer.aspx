@@ -11,18 +11,35 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <%--<asp:Panel ID="pnlParentResults" runat="server" ScrollBars="None" CssClass="ParentPanel">--%>
     <div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <rsweb:ReportViewer
-            AsyncRendering="False" 
             ID="rvDataViewer" 
-            runat="server" 
-            SizeToReportContent="True"
-            Width="90%" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowPrintButton="False">
-            
+            runat="server"
+            Font-Names="Verdana" 
+            Font-Size="8pt" 
+            ShowPrintButton="False" 
+            ShowRefreshButton="False"
+            ShowZoomControl="False" 
+            style="Width:99.5%; overflow-x:hidden; overflow-y:scroll;">
         </rsweb:ReportViewer>
-        &nbsp;&nbsp;&nbsp;
     </div>
+        
+   <%-- </asp:Panel>
+       <%--<div style="overflow:scroll; margin-bottom:16px; height: 459px;">--%>
+       
+       <%--ProcessingMode="Local"--%>
+            <%--AsyncRendering="false"--%>
+            <%--SizeToReportContent="True"--%>
+        <%--WaitMessageFont-Names="Verdana"--%>
+        <%--WaitMessageFont-Size="14pt"--%>
+        <%--Height="288px"--%>
+        <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+    
+        
+    
+        
     </form>
 
 </body>
